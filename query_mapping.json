@@ -1,0 +1,102 @@
+{
+    "Monthly rolling trend of hospital contracts won by MJN": "month hospitals contracts net rolling won lost",
+    "Monthly trend of hospital contracts won by MJN": "month hospitals contracts net rolling won lost",
+    "Monthly hospital contracts won by MJN": "month hospitals contracts net rolling won lost",
+
+    "Monthly rolling trend of hospital contracts won by MJN in 2024":"month hospitals contracts net rolling won lost 2024",
+    "Monthly trend of hospital contracts won by MJN in 2024":"month hospitals contracts net rolling won lost 2024",
+    "Monthly hospital contracts won by MJN in 2024":"month hospitals contracts net rolling won lost 2024",
+
+    "Monthly rolling trend of hospital contracts won by MJN in 2023":"month hospitals contracts net rolling won lost 2023",
+    "Monthly trend of hospital contracts won by MJN in 2023":"month hospitals contracts net rolling won lost 2023",
+    "Monthly hospital contracts won by MJN in 2023":"month hospitals contracts net rolling won lost 2023",
+
+    "Quarterly trend of hospital contracts won by MJN": "quarter hospitals net won lost",
+    "Quarterly rolling trend of hospital contracts won by MJN": "quarter hospitals net won lost",
+    "Quarterly hospital contracts won by MJN": "quarter hospitals net won lost",
+
+    "How many births has MJN gained since 2022?": "quarter births net won lost",
+    "How many births has MJN won since 2022?": "quarter births net won lost",
+    "How many net births has MJN gained since 2022?": "quarter births net won lost",
+
+    "How many births has MJN gained since 2023?": "quarter births net won lost 2023",
+    "How many births has MJN won since 2023?": "quarter births net won lost 2023",
+    "How many net births has MJN gained since 2023?": "quarter births net won lost 2023",
+
+    "How many births has MJN gained since 2024?": "quarter births net won lost 2024",
+    "How many net births has MJN gained since 2024?": "quarter births net won lost 2024",
+    "How many births has MJN won since 2024?": "quarter births net won lost 2024",
+
+    "Monthly rolling trend of net number of births won": "month births net won lost",
+    "Monthly rolling trend of number of births won": "month births net won lost",
+    "Monthly rolling trend of net number of births won by MJN": "month births net won lost",
+    "Monthly rolling trend of number of births won by MJN": "month births net won lost",
+    "Monthly trend of number of births won": "month births net won lost",
+    "Monthly number of births won": "month births net won lost",
+    "Monthly trend of number of births won by MJN": "month births net won lost",
+    "Monthly number of births won by MJN": "month births net won lost",
+
+    "Show state-wise performance for hospital contracts won / lost": "state net hospitals won",
+    "Show state-wise performance for hospital contracts won": "state net hospitals won",
+    "Show state-wise performance for hospital contracts lost": "state net hospitals won",
+    "Which state has won the most hospital contracts?": "state net hospitals won",
+    "Which state has lost the most hospital contracts?": "state net hospitals won",
+
+    "Which hospital contracts are about to expire / coming up for renewal?": "hospitals contracts coming renewal expire",
+    "How many hospital contracts are coming up for renewal?": "hospitals contracts coming renewal expire",
+    "How many hospital contracts are about to expire?": "hospitals contracts coming renewal expire",
+    "Which hospital contracts are about to expire?": "hospitals contracts coming renewal expire",
+    "Which hospital contracts are coming up for renewal?": "hospitals contracts coming renewal expire",
+   
+    "States with the best / worst birth share for Reckitt":"% percentage share birth state",
+    "States with the best birth share for Reckitt":"% percentage share birth state",
+    "States with the worst birth share for Reckitt":"% percentage share birth state",
+    "States with the highest birth share for Reckitt":"% percentage share birth state",
+    "States with the lowest birth share for Reckitt":"% percentage share birth state",
+    
+    "Which are the biggest hospitals that MJN has lost since 2022?":"biggest hospital lost",
+    "Which are the biggest hospitals that MJN has lost?":"biggest hospital lost",
+   
+    "In which states does MJN have the most number of opportunity cities?":"highest opportunity state",
+   
+    "Compare monthly sales trends across top brands":"month sales brand trend",
+    "Show monthly sales for top brands":"month sales brand trend",
+    "Show monthly sales trends for top brands":"month sales brand trend",
+    "Compare monthly sales trends for top brands":"month sales brand trend",
+    "Monthly POS sales in top performing brands":"month sales brand trend",
+    "Show Monthly POS sales in top performing brands":"month sales brand trend",
+    "Compare POS sales of top performing brands":"month sales brand trend",
+
+    "Show monthly sales trends for top retailers":"month sales retailer trend",
+    "Compare monthly sales trends for top retailers":"month sales retailer trend",
+    "Monthly POS sales in top performing retailers":"month sales retailer trend",
+    "Show Monthly POS sales in top performing retailers":"month sales retailer trend",
+    "Compare POS sales of top performing retailers":"month sales retailer trend",
+    "Show monthly sales trends for top stores":"month sales retailer trend",
+    "Compare monthly sales trends for top stores":"month sales retailer trend",
+    "Compare monthly sales trends across top retailers":"month sales retailer trend",
+    "Show monthly sales for top retailers":"month sales retailer trend",
+
+    "Monthly POS sales in top performing states":"month sales state trend",
+    "Show Monthly POS sales in top performing states":"month sales state trend",
+    "Compare POS sales of top performing states":"month sales state trend",
+    "Show monthly sales trends for top states":"month sales state trend",
+    "Compare monthly sales trends for top states":"month sales state trend",
+    "Compare monthly sales trends across top states":"month sales state trend",
+    "Show monthly sales for top states":"month sales state trend",
+
+    "Effect of Net Births Won on POS Sales":"trend pos sales net births won comparison",
+    "What is the effect of Net Births Won on POS Sales":"trend pos sales net births won comparison",
+    "Compare trends of Net Births Won and POS Sales":"trend pos sales net births won comparison",
+
+    "Which retailers are having the best YOY growth for POS Sales?":"retailers yoy growth best", 
+    "Which retailers are having the best year on year growth for POS Sales?":"retailers yoy growth best", 
+    "Which stores are having the best YOY growth for POS Sales?":"retailers yoy growth best", 
+    "Which stores are having the best Year on year growth for POS Sales?":"retailers yoy growth best", 
+
+    "Which retailers are showing a decline in POS Sales?":"retailers yoy growth negative",
+    "Which retailers have a negative yoy growth in POS Sales?":"retailers yoy growth negative",
+    "Which retailers have a negative year on year growth in POS Sales?":"retailers yoy growth negative",
+    "Which stores have a negative yoy growth in POS Sales?":"retailers yoy growth negative",
+    "Which stores have a negative year on year growth in POS Sales?":"retailers yoy growth negative"
+}

@@ -1,0 +1,423 @@
+[
+    {
+        "query": "month hospitals contracts net rolling won lost",
+        "response": {
+            "source": "",
+            "answer": "Here is the monthly rolling trend of hospital contracts won by MJN, illustrating the net number of hospital contracts won over time.",
+            "graphs": [
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"codes/Q1.py",
+                    "text2":"Here are some insights based on the trends observed:\n\n- **Hospitals Won**: There is variability in the number of hospitals won each month, with some months showing significant gains (e.g., November 2022). This trend can indicate a sporadic acquisition strategy or external factors influencing monthly wins.\n\n- **Hospitals Lost**: The number of hospitals lost fluctuates each month, with certain months showing higher losses. This variability might suggest challenges in retention or competition in certain periods.\n\n- **Rolling Net Hospitals Won**: The trend line is moving generally upward from January 2022 to mid-2024, indicating a steady net increase in the number of hospitals won, even as there are fluctuations in monthly gains and losses. This suggests that despite some months with notable hospital losses, the overall trend is one of growth, with more hospitals being won than lost on a rolling basis.\n\nTo strengthen performance, identifying specific months or conditions contributing to high losses could help strategize retention efforts, while months with high wins can provide insights for replicating success in other periods."
+                }
+            ],
+            "tab_name" : "'Hospital Contracts Overview' Tab.",
+            "link": "https://app.powerbi.com/groups/me/reports/0a31f2f3-23a7-4ca0-94a1-58ae71758832/ReportSectionf22b5601e0cd434e3721?ctid=95e66ecc-f2c2-464b-84d9-8fda407bc923&experience=power-bi&bookmarkGuid=Bookmarkebaa0e95b594b3513d22"
+        }
+    },
+
+    {
+        "query": "month hospitals contracts net rolling won lost 2024",
+        "response": {
+            "source": "",
+            "answer": "Here is the monthly rolling trend of hospital contracts won by MJN in 2024.",
+            "graphs": [
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"codes/Q1_2024.py",
+                    "text2":"Here are some key insights from the data:\n\n- **Overall Positive Trend in Net Hospitals Won**:\n\n\t1. The line representing 'Net Hospitals Won (Rolling)' shows an increasing trend until July 2024, peaking at 30 hospitals.\n\n\t2. The net gain in hospital contracts starts to decrease after July, indicating a slowing momentum.\n\n- **Spikes in Hospital Wins**:\n\n\t1. Significant increases in 'Hospitals Won' are observed in February (18) and May (8), contributing to the rise in the rolling net wins.\n\n\t2. However, a noticeable dip in the number of hospitals won is observed in August (2) and September (1).\n\n- **Consistent Growth Early On**:\n\n\t1. From January to May 2024, there is a consistent increase in net hospitals won, reflecting effective acquisition strategies and relatively controlled losses during this period.\n\n- **Need to Address Recent Losses**:\n\n\t1. The increasing hospital losses in September are a red flag. If not addressed, this trend could erode the earlier gains in net hospitals.\n\n- **Caution on Plateauing Growth**:\n\n\t1. While there was strong momentum in the first half of 2024, the plateauing and slight decline in net rolling wins after July signal a need for reinvigorated strategies to sustain growth.\n\n- **Recommendations**:\n\n\t1. Focus on analyzing the causes behind the September spike in hospital losses.\n\n\t2. Reassess strategies in July and August that resulted in fewer hospital acquisitions.\n\n\t3. Continue leveraging the strengths observed in the earlier months of 2024 to regain momentum."
+                }
+            ],
+            "tab_name" : "'Hospital Contracts Overview' Tab.",
+            "link": "https://app.powerbi.com/groups/me/reports/0a31f2f3-23a7-4ca0-94a1-58ae71758832/ReportSectionf22b5601e0cd434e3721?ctid=95e66ecc-f2c2-464b-84d9-8fda407bc923&experience=power-bi&bookmarkGuid=Bookmarkebaa0e95b594b3513d22"
+        }
+    },
+
+    {
+        "query": "month hospitals contracts net rolling won lost 2023",
+        "response": {
+            "source": "",
+            "answer": "Here is the monthly rolling trend of hospital contracts won by MJN in 2023.",
+            "graphs": [
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"codes/Q1_2023.py",
+                    "text2":"**Key Observations**:\n\n- **Notable months - Hospital Wins and Losses**:\n\n1. March 2023: Significant losses (10 hospitals lost vs. 8 won).\n\n2. May 2023: High number of wins (20) compared to minimal losses (3).\n\n3. December 2023: Balanced, with 8 hospitals won and 6 lost.\n\n- **Net Hospitals Won (Rolling)**:\n\n1. Rapid growth periods: Between May 2023 and August 2023, driven by a significant net wins in May.\n\n2. Flattening: September through December 2023 shows minimal increase, suggesting relatively stable net gains.\n\n- **Performance Trends**:\n\n1. The majority of the months show a positive net gain, indicating MJN's effective strategy in acquiring hospital contracts.\n\n2. The losses, while present, are relatively small compared to the wins in most months, helping sustain a strong upward rolling trend.\n\n- **Implications**:\n\n1. Strategic Success in May 2023: A peak in May indicates an impactful campaign or initiative leading to a surge in hospital wins.\n\n2. Sustained Growth: The overall rolling trend reflects consistent improvement in MJN's market presence, possibly due to effective retention strategies and new acquisitions.\n\n- **Areas for Improvement**: February and March 2023 show higher relative losses, which may warrant a review of strategies during these months."
+                }
+            ],
+            "tab_name" : "'Hospital Contracts Overview' Tab.",
+            "link": "https://app.powerbi.com/groups/me/reports/0a31f2f3-23a7-4ca0-94a1-58ae71758832/ReportSectionf22b5601e0cd434e3721?ctid=95e66ecc-f2c2-464b-84d9-8fda407bc923&experience=power-bi&bookmarkGuid=Bookmarkebaa0e95b594b3513d22"
+        }
+    },
+
+    {
+        "query": "quarter hospitals net won lost",
+        "response": {
+            "source": "",
+            "answer": "The data displays positive quarterly performance in terms of net cumulative hospital contract gains.",
+            "graphs": [
+                {
+                    "text1":"",
+                    "code_path":"codes/Q2.py",
+                    "text2": "Here are insights based on the quarterly trends of net hospital contracts won:\n\n- **Fluctuations in Quarterly Gains**: The data reveals significant fluctuations in net contracts won per quarter, with some quarters showing strong net gains and others displaying lower or even negative results. The highest quarterly gain is +72 hospital contracts in Q4 2022 and the largest quarterly loss is -35 hospital contracts in Q1 2022. This variability highlights differing levels of success in contract acquisition across quarters.\n\n- **Rolling Net Contracts**: The rolling net contract trend provides a cumulative perspective, showing overall growth or decline across the quarters. Quarters with sustained positive net gains contribute to an upward trend, while consecutive negative quarters could reverse this growth.\n\n- **Seasonal or Periodic Trends**: There may be underlying patterns, such as quarters with more significant contract wins, possibly influenced by seasonal or strategic factors like annual budgeting or marketing pushes that impact acquisition efforts.\n\n- **Key Peaks and Troughs**: Certain quarters stand out with high net growth, possibly due to effective campaigns or favorable market conditions, while low or negative quarters could be attributed to external challenges, increased competition, or other market dynamics.\n\n- **Long-term Growth Trend**: The upward trend in rolling net contracts over the analyzed period suggests a successful strategy for hospital contract acquisition, with some quarters contributing more to this overall growth trajectory.\n\nThese insights can help pinpoint which quarters are most effective for contract acquisition and identify periods that may need targeted interventions to improve performance."
+                }
+            ],
+            "tab_name" : "'Hospital Contracts Overview' Tab.",
+            "link": "https://app.powerbi.com/groups/me/reports/0a31f2f3-23a7-4ca0-94a1-58ae71758832/ReportSectionf22b5601e0cd434e3721?ctid=95e66ecc-f2c2-464b-84d9-8fda407bc923&experience=power-bi&bookmarkGuid=Bookmarkebaa0e95b594b3513d22"
+        }
+    },
+
+    {
+        "query": "quarter births net won lost",
+        "response": {
+            "source": "",
+            "answer": "MJN has gained a total of **358,001 net births** since 2022, reflecting significant overall growth.",
+            "graphs": [
+                {
+                    "text1":"",
+                    "code_path":"codes/Q3.py",
+                    "path":"",
+                    "text2":"Here are trend insights from the quarterly data on births gained and lost:\n\n- **Steady Positive Growth**: Over the observed quarters, MJN consistently maintains positive net births, with an overall cumulative net gain of 358,001. This indicates strong underlying growth momentum, where the average quarterly births won (50,602) significantly exceeds the average quarterly births lost (18,057).\n\n- **Growth Spikes**: Quarters like Q2 2024 and Q4 2022 stand out with the highest net births and births won respectively, reflecting periods of intensified growth. These quarters may align with successful strategic efforts, promotional campaigns, or other beneficial conditions.\n\n- **Challenging Periods**: Q1 2022 shows the highest losses and lowest net births (-9,016), signaling a potential challenge at the beginning of the observed period. This may have been due to market entry issues, heightened competition, or other adverse conditions that the company overcame in later quarters.\n\n- **Strategic Insights**: The quarterly highs and lows can inform future strategic planning by highlighting periods of strength and vulnerability. The data suggests that certain quarters consistently perform better, possibly pointing to predictable cycles or windows of opportunity for concentrated efforts.\n\nThis quarterly trend analysis reflects both resilience and expansion potential, underscoring the company's ability to grow sustainably while navigating seasonal variations."
+                }
+            ],
+            "tab_name" : "'Hospital Contracts Overview' Tab.",
+            "link": "https://app.powerbi.com/groups/me/reports/0a31f2f3-23a7-4ca0-94a1-58ae71758832/ReportSectionf22b5601e0cd434e3721?ctid=95e66ecc-f2c2-464b-84d9-8fda407bc923&experience=power-bi&bookmarkGuid=Bookmarkebaa0e95b594b3513d22"
+        }
+    },
+
+    {
+        "query": "quarter births net won lost 2023",
+        "response": {
+            "source": "",
+            "answer": "MJN has gained a total of **186,853 net births** since 2023, reflecting significant overall growth.",
+            "graphs": [
+                {
+                    "text1":"",
+                    "code_path":"codes/Q3_2023.py",
+                    "path":"",
+                    "text2":"Key Insights:\n\n- **Net Growth Over Time**:\n\n1. MJN achieved a total of 186,853 net births won since 2023, indicating sustained growth in the infant nutrition market.\n\n2. There was a steady increase in net births from Q1 2023 to Q1 2024, peaking at 196.4K in Q1 2024, followed by a slight decline to 186.9K in Q3 2024.\n\n- **Trend Observations**:\n\n1. 2023 Q3 showed the highest positive shift due to a large spike in births won and minimal losses, driving the steepest growth.\n\n2. 2024 Q2 and Q3 exhibited a decline, with births won decreasing and losses increasing. This could reflect potential market challenges or competitive pressures.\n\n- **Strategic Considerations**:\n\n1. The significant growth in 2023 Q3 suggests successful campaigns or initiatives that drove increased market penetration.\n\n2. The decline in the latter quarters of 2024 warrants further analysis to understand contributing factors such as competitive actions, economic shifts, or operational constraints.\n\n3. Strategies to minimize 'Births Lost' could further enhance net growth, especially in quarters where losses climbed."
+                }
+            ],
+            "tab_name" : "'Hospital Contracts Overview' Tab.",
+            "link": "https://app.powerbi.com/groups/me/reports/0a31f2f3-23a7-4ca0-94a1-58ae71758832/ReportSectionf22b5601e0cd434e3721?ctid=95e66ecc-f2c2-464b-84d9-8fda407bc923&experience=power-bi&bookmarkGuid=Bookmarkebaa0e95b594b3513d22"
+        }
+    },
+
+    {
+        "query": "quarter births net won lost 2024",
+        "response": {
+            "source": "",
+            "answer": "MJN has gained a total of **54,310 net births** since 2024, reflecting significant overall growth.",
+            "graphs": [
+                {
+                    "text1":"",
+                    "code_path":"codes/Q3_2024.py",
+                    "path":"",
+                    "text2":"Here are some key insights:\n\n- **Net Births Won Trend**:\n\n1. In Q1 2024, there is a net gain of 61.2K births, peaking at 63.9K in Q2 2024 before declining to 54.3K in Q3 2024.\n\n2. While Q2 shows the highest gain, Q3 represents a notable decrease in net births won.\n\n- **Drivers of Net Changes**:\n\n1. The decrease in Q3 can be attributed to a significant reduction in births won (from 40.0K to 12.0K) combined with an increase in births lost (from 11.1K to 21.6K). \n\n2. This shift highlights a dual-factor impact: lower wins and higher losses.\n\n- **Stability Observations**:\n\n1. Q2 appears to be the most stable quarter, with high wins and low losses, optimizing the net births won.\n\n2. Q3 signals potential challenges, with a reversal in favorable trends.\n\n- **Recommendations**:\n\n1. Investigate factors contributing to the sharp decline in Q3, particularly the drop in births won.\n\n2. Assess interventions or campaigns used in Q2 that led to lower losses and higher wins, which could guide strategies for Q4 and beyond."
+                }
+            ],
+            "tab_name" : "'Hospital Contracts Overview' Tab.",
+            "link": "https://app.powerbi.com/groups/me/reports/0a31f2f3-23a7-4ca0-94a1-58ae71758832/ReportSectionf22b5601e0cd434e3721?ctid=95e66ecc-f2c2-464b-84d9-8fda407bc923&experience=power-bi&bookmarkGuid=Bookmarkebaa0e95b594b3513d22"
+        }
+    },
+
+    {
+        "query": "month births net won lost",
+        "response": {
+            "source": "",
+            "answer": "The overall trend shows a net positive gain in births over the period, indicating that MJN consistently experiences more gains than losses, contributing to a strong cumulative net growth.\n\n- **Highest Births Lost**: March 2023, with 22,494 births lost.\n\n- **Highest Births Won**: November 2022, with 60,386 births won.\n\n- **Highest Net Births Won**: July 2024, reaching 377,054.",
+            "graphs": [
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"codes/Q4.py",
+                    "text2":"Here are some trend insights based on the monthly births gained and lost:\n\n- **Seasonal Variability**: The data reveals some periodic highs and lows, suggesting that certain months experience significantly higher births won or births lost, hinting at possible seasonality or external factors influencing monthly performance.\n\n- **Notable Periods of Gain and Loss**\n\n1. **High Gain Period**: November 2022 and July 2024 stand out with exceptionally high births won and high net births won respectively. These months likely benefitted from successful campaigns, market conditions, or other favorable factors.\n\n2. **Significant Loss Period**: March 2023 and March 2022 show the highest births lost and lowest net births won, respectively. These points may indicate challenges such as increased competition, client loss, or other adverse conditions impacting performance.\n\n- **Average Monthly Trends**\n\n1. **Average Births Lost and Won**: The average monthly births won (16,867) far exceeds the births lost (6,019), affirming the general trend of net growth. This indicates steady positive momentum, as gains surpass losses on average.\n\n2. **Monthly Stability with Growth Potential**: While some months show dramatic peaks and troughs, the overall growth trend remains positive, signaling resilience and the potential for sustainable expansion despite fluctuations.\n\nThese insights could help identify strategic months for focused initiatives or bolster understanding of periods with performance dips for targeted improvements."
+                }
+            ],
+            "tab_name" : "'Hospital Contracts Overview' Tab.",
+            "link": "https://app.powerbi.com/groups/me/reports/0a31f2f3-23a7-4ca0-94a1-58ae71758832/ReportSectionf22b5601e0cd434e3721?ctid=95e66ecc-f2c2-464b-84d9-8fda407bc923&experience=power-bi&bookmarkGuid=Bookmarkebaa0e95b594b3513d22"
+        }
+    },
+
+    {
+        "query": "state net hospitals won",
+        "response": {
+            "source": "",
+            "answer": "",
+            "dataframe":[
+                {
+                    "text1":"**Here is a dataframe showing the states with the most hospital contracts won since 2022.**",
+                    "path":"",
+                    "code_path":"codes/Q5_df.py",
+                    "text2":"**Several states show high activity in both hospital gains and losses:**\n\n- California (CA): 29 hospitals lost and 15 won, resulting in a net decrease of 14 hospitals.\n\n- Florida (FL): 15 hospitals lost and 22 won, yielding a net increase of 7 hospitals.\n\n- Indiana (IN): 9 hospitals lost and 28 won, with a net increase of 19 hospitals.\n\n- Texas (TX): 13 hospitals lost and 104 won, leading to a significant net increase of 91 hospitals.\n\nThese states reflect dynamic hospital landscapes, with both significant growth and attrition. California, in particular, stands out with more losses than gains, while Texas shows a massive net gain despite losses."
+                }
+            ],
+            "graphs": [
+                {
+                    "text1":"Here is a heat map displaying net hospital contracts won in each state.",
+                    "path":"",
+                    "code_path":"codes/Q5_plot.py",
+                    "text2":"**Notable States**\n\n**- Highest Net Gain:** Texas (TX), with a net increase of 91 hospitals.\n\n**- Lowest Net Gain:** California (CA), with a net decrease of 14 hospitals.\n\nThese extremes highlight significant disparities in hospital changes among states, with Texas showing major growth and California experiencing the largest decline.​"
+                }
+            ],
+            "tab_name" : "'Hospital Contracts Overview' Tab.",
+            "link": "https://app.powerbi.com/groups/me/reports/0a31f2f3-23a7-4ca0-94a1-58ae71758832/ReportSectionf22b5601e0cd434e3721?ctid=95e66ecc-f2c2-464b-84d9-8fda407bc923&experience=power-bi&bookmarkGuid=Bookmarkebaa0e95b594b3513d22"
+        }
+    },
+
+    {
+        "query": "hospitals contracts coming renewal expire",
+        "response": {
+            "source": "",
+            "answer": "Here is a dataframe displaying hospital contracts that are about to expire soon.",
+            "dataframe":[
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"codes/Q6_df_1.py",
+                    "text2":""
+                },
+
+                {
+                    "text1":"**Let us calculate the number of hospital contracts expiring in the upcoming months, split across the current contract holders.**",
+                    "path":"",
+                    "code_path":"codes/Q6_df_2.py",
+                    "text2":"Here are the key insights from the month-wise hospital counts per brand:\n\n- **Contract Counts**: Significant variance appears in contract counts, especially with high numbers like 452 for Abbott in February 2025 and 215 for MJN. This might indicate periods of contract renewals or shifts in brand popularity.\n\n- **Birth Counts**: Larger birth counts, especially for Abbott and MJN, may indicate that Abbott and MJN are likely focusing on renewing or managing a larger volume of hospital partnerships.\n\n- **Brand Presence**: Abbott maintains the highest presence with a consistently high number of contracts each month, suggesting a solid, widespread association with hospitals. MJN also has a significant hospital presence, though slightly lower than Abbott in some months. This shows that MJN is a competitive brand in terms of hospital connections."
+                }
+            ],
+            "graphs": [
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"codes/Q6_plot.py",
+                    "text2":""
+                }
+            ],
+            "tab_name" : "",
+            "link": ""
+        }
+    },
+
+    {
+        "query": "% percentage share birth state",
+        "response": {
+            "source": "",
+            "answer": "",
+            "dataframe":[
+                {
+                    "text1":"**Here is a dataframe displaying the state-wise birth share for Reckitt.**",
+                    "path":"",
+                    "code_path":"codes/Q7_df.py",
+                    "text2":"The analysis of the top and bottom performers in terms of birth share for Reckitt reveals the following insights:\n\n**Best-Performing States**:\n\n- Alabama: Leads with a remarkable 85.82% share.\n\n- Arkansas - Achieves a high share of 65.98%.\n\n- Virginia - Holds 62.25% of births attributed to Reckitt.\n\nThese states show Reckitt's high market penetration, especially Alabama and Arkansas, where Reckitt holds more than 60% of the birth share.\n\n**Worst-Performing States**:\n\n- Connecticut and Rhode Island - Report 0% Reckitt birth share.\n\n- North Dakota - Shows minimal penetration with only 0.57%.\n\n- Utah - Has a low share at 2.56%.\n\n- West Virginia - Slightly higher but still low at 2.99%.\n\nIn these states, particularly Connecticut and Rhode Island, Reckitt's market presence is absent or minimal, indicating potential areas for market development and strategic intervention."
+                }
+            ],
+            "graphs": [
+                {
+                    "text1":"This information can also be displayed as a heatmap showing Reckitt's birth share for every state.",
+                    "path":"",
+                    "code_path":"codes/Q7_plot.py",
+                    "text2":"**Notable States**\n\n- The state with the highest Reckitt birth share is Alabama, with an 85.82% share of births out of a total of 81,529 births.\n\n- The states with the lowest Reckitt birth share are Rhode Island and Connecticut with a 0% share of births for Reckitt out of 12,009 and 43,339 total births respectively.\n\nThese extremes indicate significant variation in Reckitt's influence or presence across states."
+                }
+            ],
+            "tab_name" : "",
+            "link": ""
+        }
+    },
+
+    {
+        "query": "biggest hospital lost",
+        "response": {
+            "source": "",
+            "answer": "Here is a dataframe containing the biggest hospital contracts lost by MJN in terms of number of births.",
+            "dataframe":[
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"codes/Q8.py",
+                    "text2":"**Here are some insights:**\n\n**Concentration of Loss:** The highest impact is concentrated in a few key hospitals, with the largest losses coming from hospitals such as Nationwide Children's Hospital, Adventhealth Orlando, and Clovis Community Medical Centre.\n\n**Geographical Spread:** There is a prominent role of specific states in overall birth losses, especially California.\n8 out of the 20 biggest hospitals lost by MJN are located in California, and experienced the most significant losses in terms of total births, with a total of 36,924 births lost. \n\n**Potential Impact:** The loss of hospitals with high birth volumes could indicate a substantial impact on MJN's service reach in maternal and infant care."
+                }
+            ],
+            "tab_name" : "'Hospital Summary Tracker' Tab, after selecting 'Hospital Status' as 'Lost' and sorting by 'Net Total Births'." ,
+            "link": "https://app.powerbi.com/groups/me/reports/0a31f2f3-23a7-4ca0-94a1-58ae71758832/ReportSectiona94f7c53364352c7d730?ctid=95e66ecc-f2c2-464b-84d9-8fda407bc923&experience=power-bi&bookmarkGuid=Bookmarkc8a56539bf2dc8adde9c"
+        }
+    },
+
+    {
+        "query": "highest opportunity state",
+        "response": {
+            "source": "",
+            "answer": "Cities are tagged under **'Opportunity'** when Reckitt's share in the number of births in the city is between **40% and 66%.**\n\nFor every state, let's calculate the number of cities tagged as 'Opportunity'.",
+            "dataframe":[
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"codes/Q9.py",
+                    "text2":""
+                }
+            ],
+            "graphs": [
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"",
+                    "text2":""
+                }
+            ],
+            "tab_name" : "",
+            "link": ""
+        }
+    },
+
+    {
+        "query": "month sales brand trend",
+        "response": {
+            "source": "",
+            "answer": "**Let us retrieve the top brands with the highest total POS sales since October 2022.**",
+            "dataframe":[
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"codes/Q10_df.py",
+                    "text2":"Here’s a breakdown of the best-performing brands based on sales:\n\n- **ENFAMIL** - Leads with sales totaling approximately 1.99 billion.\n\n- **ENFAMIL WIC** - Follows closely with 1.02 billion in sales.\n\n- **NUTRAMIGEN / ALLERGY** - Achieves 387.92 million in sales.\n\n- **ENFAGROW** - Reports sales of 148.5 million.\n\n- **NUTRAMIGEN** - Contributes 130.05 million.\n\nThese brands show strong market presence, with Enfamil products dominating sales, especially in the general and WIC categories. These insights suggest Enfamil's strength in the core infant nutrition segment, while other specialized brands have limited market penetration."
+                }
+            ],
+            "graphs": [
+                {
+                    "text1":"**For the top 5 brands, let us plot the monthly POS sales since October 2022.**",
+                    "path":"",
+                    "code_path":"codes/Q10_plot.py",
+                    "text2":"The monthly sales trends for the top 5 brands reveal the following insights:\n\n- **ENFAMIL** - Maintains the highest and most consistent sales, with notable peaks at certain intervals, possibly indicating seasonal or promotional effects.\n\n- **ENFAMIL WIC** - Follows ENFAMIL closely but with more variability, showing both highs and dips, likely influenced by WIC program cycles or state-level factors.\n\n- **NUTRAMIGEN / ALLERGY** - Displays a steady upward trend, suggesting growing demand in the allergy segment.\n\n- **ENFAGROW** - Shows moderate but steady sales, with minor fluctuations, indicating a stable yet niche market.\n\n- **NUTRAMIGEN** - Consistent, with slight increases over time, possibly reflecting steady demand for its specialized use.\n\nENFAMIL products clearly lead the market, while specialized products like NUTRAMIGEN show stable, incremental growth."
+                }
+            ],
+            "tab_name" : "'Sell Out Tracker' Tab, after filtering for the specific Global Brand.",
+            "link": "https://app.powerbi.com/groups/me/reports/0a31f2f3-23a7-4ca0-94a1-58ae71758832/ReportSectione9a21a75d716eab48ec9?ctid=95e66ecc-f2c2-464b-84d9-8fda407bc923&experience=power-bi"
+        }
+    },
+
+    {
+        "query": "trend pos sales net births won comparison",
+        "response": {
+            "source": "",
+            "answer": "Let us analyze the effect of running net births won on POS (point-of-sale) sales.",
+            "graphs": [
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"codes/Q11.py",
+                    "text2":"- **Strong Relationship**: There’s a strong positive link between 'Running Net Births Won' (a cumulative count of net births won over time) and total sales. In fact, this relationship is so strong that increases in 'Running Net Births Won' are directly connected to higher sales at the point of sale (POS).\n\n- **Impact on Sales**: For every additional 'birth won' added to the cumulative total, sales are likely to increase by about 957 units. So, if your cumulative net births won goes up by 1,000, you could expect an increase of around 957,000 units in sales.\n\n- **Model Reliability**: The model explaining this relationship is quite solid, as it accounts for 71% of the variation in total sales. This means that 'Running Net Births Won' is one of the most important factors driving POS sales.\n\n- **Actionable Insight**: If you can increase the net number of births won each quarter, you’re likely to see a meaningful boost in sales. Tracking and boosting these net births won is therefore a valuable strategy for increasing sales.\n\nThese findings clarify that running net births won isn't just a metric—it’s closely tied to sales performance, so focusing on it could help drive growth."
+                }
+            ],
+            "tab_name" : "",
+            "link": ""
+        }
+    },
+
+    {
+        "query": "month sales retailer trend",
+        "response": {
+            "source": "",
+            "answer": "**Let us retrieve the top retailers with the highest total POS sales since October 2022.**",
+            "dataframe":[
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"codes/Q12_df.py",
+                    "text2":"**Best Performing Retailers**\n\n- **Top Retailer - Walmart**: Leading the list, Walmart achieved an impressive 1.61 billion dollars in POS sales, making it the highest-grossing retailer. Walmart’s large sales volume reflects its widespread market presence and strong consumer reach, underscoring its position as a dominant force in retail.\n\n- **Kroger and Target**: Following Walmart, Kroger recorded 788.12 million dollars in sales, while Target reached 613.94 million. Both retailers have a solid foothold, particularly in grocery and general merchandise, attracting a broad consumer base through varied product offerings and loyalty programs.\n\n- **Mid-Tier Retailers - Costco and HEB**: Costco and HEB posted 224.42 million dollars and 152.59 million dollars respectively. Costco’s membership-driven model and HEB’s strong regional presence likely contribute to their performance. Both retailers maintain significant customer loyalty, especially within targeted markets."
+                }
+            ],
+            "graphs": [
+                {
+                    "text1":"**Plotting the monthly POS sales since October 2022 for the top 5 retailers.**",
+                    "path":"",
+                    "code_path":"codes/Q12_plot.py",
+                    "text2":"The monthly sales trends for top retailers show various patterns in sales growth:\n\n- Walmart generally shows strong month-over-month growth with occasional declines. It had significant sales growth spikes, particularly around January and March.\n\n- Kroger and Target exhibit similar patterns with occasional large monthly increases followed by drops, indicating possibly seasonal or promotional influences.\n\n- Costco displays more stability, though it also reflects fluctuations that may align with broader seasonal trends.\n\n- HEB shows volatility, with some months of sharp increases followed by notable declines, suggesting high sensitivity to local events or promotions.\n\nThese trends provide insights into each retailer's sales behavior over time, highlighting the variability in month-over-month growth among the top retailers."
+                }
+            ],
+            "tab_name" : "'Sell Out Tracker' Tab, after filtering for the specific retailer.",
+            "link": "https://app.powerbi.com/groups/me/reports/0a31f2f3-23a7-4ca0-94a1-58ae71758832/ReportSectione9a21a75d716eab48ec9?ctid=95e66ecc-f2c2-464b-84d9-8fda407bc923&experience=power-bi"
+        }
+    },
+
+    {
+        "query": "month sales state trend",
+        "response": {
+            "source": "",
+            "answer": "**Calculating the top performing states in terms of POS sales since October 2022.**",
+            "dataframe":[
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"codes/Q13_df.py",
+                    "text2":"Here's a summary of sales for the top five states:\n\n- **Texas**: Leading with 629.5M dollars in sales.\n\n- **California**: Second at 301.4M dollars.\n\n- **Florida**: 271.7M dollars, ranking third.\n\n- **Georgia**: Fourth place with 227.4M dollars.\n\n- **Ohio**: Fifth at 218.1M dollars.\n"
+                }
+            ],
+            "graphs": [
+                {
+                    "text1":"**Let us plot the monthly POS sales for the top 5 performing states.**",
+                    "path":"",
+                    "code_path":"codes/Q13_plot.py",
+                    "text2":"The chart above shows the monthly sales trends for the top five states:\n\n- **Texas**: Exhibits consistently high sales with noticeable peaks in January, suggesting strong seasonality, possibly post-holiday sales boosts.\n\n- **California**: Follows a stable pattern with slight peaks around December and January, aligning with the holiday season.\n\n- **Florida**: Shows moderate growth with some peaks in early months (e.g., March), hinting at potential seasonality or regional events that could drive sales.\n\n- **Georgia and Ohio**: Display similar trends, with sales gradually increasing into early spring months. This pattern suggests that sales may benefit from regional campaigns or promotions in these months.\n\nThese trends indicate potential opportunities to boost sales during peak months, particularly by capitalizing on holiday or seasonal demand."
+                }
+            ],
+            "tab_name" : "'Sell Out Tracker' Tab, after filtering for the specific state.",
+            "link": "https://app.powerbi.com/groups/me/reports/0a31f2f3-23a7-4ca0-94a1-58ae71758832/ReportSectione9a21a75d716eab48ec9?ctid=95e66ecc-f2c2-464b-84d9-8fda407bc923&experience=power-bi"
+        }
+    },
+
+    {
+        "query": "retailers yoy growth best",
+        "response": {
+            "source": "",
+            "answer": "**Calculating the Year-on-Year (YOY) growth percentage in POS Sales for each retailer.**",
+            "dataframe":[
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"codes/Q14_df.py",
+                    "text2":"The following retailers have shown the biggest % increase in POS Sales from 2023 to 2024:\n\n- **Kroger** - With a 87.8% increase in POS Sales in the first 10 months of 2024, Kroger is the most improved retailer. The POS Sales have increased from 244.8M in the first 10 months of 2023 to 459.8M in 2024.\n\n- **BJ's** - With 50.2% growth in POS Sales in 2024, BJ's emerges as the second most improved retailer in terms of YoY Growth. The POS Sales have increased to 10.8M in 2024 (till October), up from 7.2M in the first ten months of 2023.\n\n- **HEB** - The POS Sales for HEB are up from 54.8M in 2023 to 77.2M in 2024, with a YoY growth of 41%."
+                }
+            ],
+            "graphs": [
+                {
+                    "text1":"**Let us plot the monthly Year-on-Year POS Sales for the most improved retailer.**",
+                    "path":"",
+                    "code_path":"codes/Q14_plot.py",
+                    "text2":"Kroger’s 2024 sales began with declines in January (-16.1%) and February (-16.5%) compared to 2023. However, sales rebounded in March (+20.7%) and continued to rise in April (+16%) and especially in May (+145.6%). The early-year downturn shifted to strong growth, with May showing an exceptional boost, likely due to strategic or seasonal factors."
+                }
+            ],
+            "tab_name" : "",
+            "link": ""
+        }
+    },
+
+    {
+        "query": "retailers yoy growth negative",
+        "response": {
+            "source": "",
+            "answer": "**Calculating the Year-on-Year (YOY) growth percentage of POS Sales for each retailer.**",
+            "dataframe":[
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"codes/Q15_df.py",
+                    "text2":"Here’s a summary of retailers with negative year-over-year (YoY) growth till October:\n\n- **Rite Aid**: Experienced the steepest decline, with sales dropping by 52.7% from 3.2M to 1.5M, indicating significant challenges.\n\n- **Albertsons**: Sales decreased by 30%, from 45M to 31.5M, suggesting reduced consumer spending or competition impacts.\n\n- **ShopRite**: Saw a decline of 22.9%, with sales falling from 5.3M to 4.1M, possibly reflecting shifting consumer preferences.\n\n- **Target**: Recorded a 21.7% drop, from 288.8M to 226.2M, indicating a notable dip in demand or competitive pressures.\n\n- **ADUSA**: Sales decreased by 20.9%, from 34.8M to 27.5M, potentially due to market factors or operational challenges.\n\nIn summary, these retailers faced consistent sales declines, likely influenced by market shifts, competitive dynamics, or changes in consumer behavior."
+                }
+            ],
+            "graphs": [
+                {
+                    "text1":"**Let us plot the YoY POS Sales for the most negatively affected retailer.**",
+                    "path":"",
+                    "code_path":"codes/Q15_plot.py",
+                    "text2":"Here’s a summary of Rite Aid’s year-over-year sales changes for each month:\n\n- **January**: Sales dropped by 14.2%, starting the year with a decline.\n\n- **February**: A significant decrease of 44%, showing a sharp downturn.\n\n- **March**: Sales were nearly flat, with only a slight 0.3% decrease, indicating some stability.\n\n- **April - May**: Sales declined by 27.5% in April and 41.2% in May, continuing a downward trend.\n\n- **June - October**: Each month saw major declines, with June down 56.5%, July 75.7%, August 73%, September 68.2%, and October 89.4%, showing a substantial decrease over last year.\n\nIn summary, Rite Aid’s sales faced a consistent and steep decline throughout 2024, with significant drops from mid-year onward. This trend could indicate challenges such as market shifts, increased competition, or internal issues affecting sales."
+                }
+            ],
+            "tab_name" : "",
+            "link": ""
+        }
+    }
+   
+
+] 

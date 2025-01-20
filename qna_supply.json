@@ -1,0 +1,175 @@
+[
+    {
+        "query": "What was the total cost to serve the German market in 2023",
+        "response": {
+            "source": "",
+            "answer": "Total cost to serve for Germany in 2023 is 23.66 Million Euros.",
+            "graphs": [
+                {
+                    "text1":"",
+                    "code_path":"codes_supply/Q1.py",
+                    "path":"",
+                    "text2":"**Highest Cost Factor:**\n\n - The highest cost factor is the Outbound Transportation Cost at €8.35M, which constitutes 35.28% of the total cost.\n\n **Significant Cost Contributions:**\n\n - Inbound Transportation Cost: €5.13M (21.68%)\n\n - Administrative Cost: €3.89M (16.44%)\n\n **Minor Cost Contributions:**\n\n - Cross Transfer Cost: €0.43M (1.82%)\n\n - Inbound Handlings Cost: €1.27M (5.38%)\n\n - Outbound Handlings Cost: €1.93M (8.18%)\n\n - Inventory Cost: €2.66M (11.23%)\n\n"
+                }
+            ],
+            "link": "https://app.powerbi.com/links/CF8MPU07JX?ctid=4ac50105-0c66-404e-a107-7cbd8a9a6442&pbi_source=linkShare"
+        }
+    },
+    {
+        "query": "How has the cost to serve evolved from 2022?",
+        "response": {
+            "source": "",
+            "answer": "The total cost to serve decreased from €24.43M in 2022 to €23.66M in 2023, a reduction of 3.15%.",
+            "graphs": [
+                {
+                    "text1":"",
+                    "path":"",
+                    "code_path":"codes_supply/Q2.py",
+                    "text2":"**Key Observations:**\n\n - The most notable increase was in Outbound Transportation costs, which rose by 4.38%.\n\n - The largest decrease was observed in Cross Transfers, down by 17.31%.\n\n - Overall, most cost types showed a decrease, contributing to the total cost reduction."
+                }
+            ],
+            "link": ""
+        }
+    },
+    {
+        "query": "What are the drivers of increase in transport costs?",
+        "response": {
+            "source": "",
+            "answer": "",
+            "graphs": [
+                {
+                    "text1":"**1. Volume**",
+                    "path":"",
+                    "code_path":"codes_supply/Q3.1.py",
+                    "text2":"Volume is not a driver of increase in outbound transportation cost as volume has **declined by ~5%** in 2023."
+                },
+                {
+                    "text1":"**2. Configuration of Warehouses**",
+                    "path":"",
+                    "text2":"There is a change in Warehouse to customer mapping between 2022 and 2023 for 16 drop points. This mapping has led to an increase in travel distance causing an increase in transportation cost by 14k Euros which is **not significant**."
+                },
+                {
+                    "text1":"**3. New serving locations**",
+                    "path":"",
+                    "text2":"There are 57 new serving locations added in 2023 the share of Volume for these locations is **0.41%** the increase in transportation cost due to the addition of these points is  **not significant**."
+                },
+                {
+                    "text1":"**4. Total number of trips**",
+                    "path":"",
+                    "code_path":"codes_supply/Q3.4.py",
+                    "text2":"Number of trips **increased by ~6.5%** in 2023 resulting in more travel distance incurring more transportation cost.This is a significant driver of increase in the transportation cost"
+                },
+                {
+                    "text1":"**5. Average number of pallets per trip**",
+                    "path":"",
+                    "code_path":"codes_supply/Q3.5.py",
+                    "text2":"**Rate card (per pallet transportation cost) is dependent on** \n\n 1. Travel distance (cost increases with distance)\n\n 2. Quantity (cost decreases with Quantity). We see the number of pallets per truck has decreased meaning for the same distance the per pallet transportation cost has increased which is a significant driver of increase in cost."
+                }
+            ],
+            "link": ""
+        }
+    },
+    
+    {
+        "query": "How can the average pallets per trip be controlled / improved",
+        "response": {
+            "source": "",
+            "answer": "",
+            "graphs": [
+                {
+                    "text1":"**1. Reducing SLA (order consolidation)**\n\n **Improving container fill rate can**\n\n 1. Reduce the number of trips and \n\n 2. Better fill rate means (low per pallet cost : rate card).\n\n This can be achieved by consolidating the orders between DC and drop point with consistent delivery (delivering 4,5 days in a week).",
+                    "path":"",
+                    "code_path":"codes_supply/Q4.1.py",
+                    "text2":""
+                },
+                {
+                    "text1":"**2. Route Consolidation.**\n\n **Strategy**:\n\n - **Demand and Vehicle Assessment:** Evaluating the demand, available vehicles, and their capacities.\n\n - **Route Design:** Planning routes to maximize the number of delivery points served per trip.\n\n",
+                    "path":"",
+                    "code_path":"codes_supply/Q4.2.py",
+                    "text2":"**Benefits:**\n\n - **Improved Fill Rate:** Ensuring vehicles are properly utilized, leading to a higher fill rate.\n\n - **Cost Reduction:** Achieving a lower transportation cost per pallet, driving overall cost savings."
+                }
+            ],
+            "link": ""
+        }
+    },
+    {
+        "query": "Explore reduction of SLA of top 40 customers and generate scenarios to identify cost savings.",
+        "response": {
+            "source": "",
+            "answer": "Currently, top 40 customers are being delivered at an average 4.25 times a week leading to a service level of 99.8%\n\n - If an ordering policy can be defined to consolidate drops limited to 3 times a week, this will lead to a cost savings of 5.6% (346K Euros)\n\n - If an ordering policy can be defined to consolidate drops limited to 2 times a week, this will lead to a cost savings of 9.43% (582K Euros)\n\n The Current consolidation logic can be applied on Customers with higher volumes and consistent order frequency throughout the fiscal year like Dir_239 (Lekkerland SE). Lekkerland SE customer constitutes 65% volume of overall sales which translates to approx 58% sales revenue.",
+            "graphs": [
+            ],
+            "link": ""
+        }
+    },
+    {
+        "query": "Explore reduction of SLA of top 20 customers and generate scenarios to identify cost savings.",
+        "response": {
+            "source": "",
+            "answer": "Currently, top 20 customers are being delivered at an average 4.75 times a week leading to a service level of 99.9%\n\n - If an ordering policy can be defined to consolidate drops limited to 3 times a week, this will lead to a cost savings of 4.2% (260K Euros)\n\n - If an ordering policy can be defined to consolidate drops limited to 2 times a week, this will lead to a cost savings of 7.11% (439K Euros)\n\n The Current consolidation logic can be applied on Customers with higher volumes and consistent order frequency throughout the fiscal year like Dir_239 (Lekkerland SE). Lekkerland SE customer constitutes 65% volume of overall sales which translates to approx 58% sales revenue.",
+            "graphs": [
+            ],
+            "link": ""
+        }
+    },
+    {
+        "query": "Specify cost savings for Customer ID Dir_239",
+        "response": {
+            "source": "",
+            "answer": "For Customer Dir_239 [Lekkerland SE], we currently deliver on all workdays i.e. Mon, Tue, Wed, Thur, Fri. These shipments have 40% LTL utilization which presents consolidation opportunities.",
+            "dataframe": [
+                {
+                    "text1":"**1. Scenario for consolidating shipments into thrice a week shipments**",
+                    "code_path":"codes_supply/Q5.1.py",
+                    "text2":"- Revised delivery schedule for Mon, Wed, Fri would lead to SLA of 95% and a total margin improvement of 22K Euros, i.e. 0.4%"
+                },
+                {
+                    "text1":"",
+                    "code_path":"codes_supply/Q5.3.py",
+                    "text2":"- Revised delivery schedule for Mon, Wed, Thurs would lead to SLA of 87% and a total margin improvement of 46K Euros, i.e. 0.75%"
+                },
+                {
+                    "text1":"**2. Scenario for consolidating shipments into twice a week shipments**",
+                    "code_path":"codes_supply/Q5.2.py",
+                    "text2":"- Revised delivery schedule for Tue, Fri would lead to SLA of 90% and a total margin improvement of 135k Euros, i.e. 2.19%"
+                },
+                {
+                    "text1":"",
+                    "code_path":"codes_supply/Q5.4.py",
+                    "text2":"- Revised delivery schedule for Tues and Thurs would lead to SLA of 78% and a total margin improvement of 77.5K, i.e. 1.26%"
+                }
+            ],
+            "link": ""
+        }
+    },
+    {
+        "query": "Specify cost savings for Customer ID Dir_121",
+        "response": {
+            "source": "",
+            "answer": "For Customer Dir_121 [Lidl gmbh & co.], we currently deliver on all workdays i.e. Mon, Tue, Wed, Thur, Fri. These shipments have 53% LTL utilization which presents consolidation opportunities.",
+            "dataframe": [
+                {
+                    "text1":"**1. Scenario for consolidating shipments into thrice a week shipment**\n\n - Revised delivery schedule for Mon, Wed, Fri would lead to SLA of 92% and a total margin improvement of 8K Euros, i.e. 0.14%",
+                    "code_path":"codes_supply/Q5.1.py",
+                    "text2":""
+                },
+                {
+                    "text1":"- Revised delivery schedule for Mon, Wed, Thurs would lead to SLA of 84% and a total margin improvement of 24K Euros, i.e. 0.43%",
+                    "code_path":"codes_supply/Q5.3.py",
+                    "text2":""
+                },
+                {
+                    "text1":"**2. Scenario for consolidating shipments into twice a week shipment**\n\n - Revised delivery schedule for Tue, Fri would lead to SLA of 86% and a total margin improvement of 54k Euros, i.e. 0.98%",
+                    "code_path":"codes_supply/Q5.2.py",
+                    "text2":""
+                },
+                {
+                    "text1":"- Revised delivery schedule for Tues and Thurs would lead to SLA of 73% and a total margin improvement of 29K, i.e. 0.52%",
+                    "code_path":"codes_supply/Q5.4.py",
+                    "text2":""
+                }
+            ],
+            "link": ""
+        }
+    }
+]

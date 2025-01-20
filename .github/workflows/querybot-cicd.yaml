@@ -1,0 +1,76 @@
+name: Deploy Streamlit App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Save PEM key to file
+        run: |
+          echo "${{ secrets.EC2_SSH_KEY }}" > /tmp/ssh_key.pem
+          chmod 400 /tmp/ssh_key.pem
+
+
+      - name: Create streamlit directory on EC2
+        run: |
+          ssh -i /tmp/ssh_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+            # Check if streamlit directory exists, and create it if it does not
+            if [ ! -d "/home/${{ secrets.EC2_USER }}/streamlit/" ]; then
+              mkdir -p /home/${{ secrets.EC2_USER }}/streamlit
+            fi
+          EOF
+
+          ssh -i /tmp/ssh_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+          # Check if streamlit directory exists, and create it if it does not
+          if [ ! -d "/home/${{ secrets.EC2_USER }}/streamlit/querybot" ]; then
+            mkdir -p /home/${{ secrets.EC2_USER }}/streamlit/querybot
+          fi
+          EOF
+
+      - name: Copy files to EC2 instance
+        run: |
+          scp -i /tmp/ssh_key.pem -o StrictHostKeyChecking=no -r ./* ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/home/${{ secrets.EC2_USER }}/streamlit/querybot
+          scp -i /tmp/ssh_key.pem -o StrictHostKeyChecking=no -r ./.streamlit ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/home/${{ secrets.EC2_USER }}/streamlit/querybot
+      - name: SSH into EC2 and set up environment
+        run: |
+          ssh -i /tmp/ssh_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+            sudo apt update
+            sudo apt install -y python3-venv python3-pip
+
+            # Kill any process using port 8501
+            fuser -k 8501/tcp || true
+            
+            
+            cd /home/${{ secrets.EC2_USER }}/streamlit/querybot
+            
+            # Create a virtual environment if not already created
+            if [ ! -d "streamlit-venv" ]; then
+              python3 -m venv streamlit-venv
+            fi
+            
+            # Activate the virtual environment
+            source streamlit-venv/bin/activate
+
+            # Upgrade pip and install dependencies
+            pip install --upgrade pip
+            sudo apt-get install -y libpq-dev python3-dev
+            pip install -r requirements.txt
+
+            cd /home/${{ secrets.EC2_USER }}/streamlit/querybot
+            
+            # Run the Streamlit app in the background
+            nohup streamlit run main.py > output.log 2>&1 &
+            exit 0
+          EOF
+
+      - name: Clean up PEM key
+        run: |
+          rm /tmp/ssh_key.pem
