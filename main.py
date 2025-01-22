@@ -1,6 +1,7 @@
 import plotly.graph_objects as go
 import pandas as pd
 import streamlit as st
+import base64
 
 pd.options.display.float_format = "{:.0f}".format
 import helper
@@ -21,25 +22,86 @@ authenticator = stauth.Authenticate(
 )
 
 # Login interface
-col1, col2 = st.columns([1, 13])
+col1, col2 = st.columns([0.5, 13])
 with col1:
-    st.image("images/chat-xxl.png", use_column_width="auto")
+    st.markdown(
+        """
+        <style>
+            [data-testid="stImage"] > img {
+                max-width: 100%;
+                width: auto;
+                height: auto;
+            }
+            
+            @media (max-width: 768px) {
+                [data-testid="stImage"] > img {
+                    max-width: 40px;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                [data-testid="stImage"] > img {
+                    max-width: 30px;
+                }
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.image(
+        "images/chat-xxl.png", width=50
+    )  # Set a base width that will be modified by CSS
 with col2:
     st.markdown(
         "<h1 style='text-align: left;'>Data Companion</h1>", unsafe_allow_html=True
     )
 authenticator.login("main")
-
+st.markdown(
+    """
+    <style>
+        /* Responsive image sizing */
+        .sidebar-image {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        /* Viewport-based scaling */
+        @media (max-width: 768px) {
+            .sidebar-image {
+                max-width: 150px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .sidebar-image {
+                max-width: 100px;
+            }
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 if st.session_state["authentication_status"]:
-    st.sidebar.title("\n")
-    st.sidebar.markdown("")
-    st.sidebar.markdown("")
-    st.sidebar.markdown("")
-    st.sidebar.image(
-        "images/Reckitt_logo.png", use_column_width=True
-    )  # Replace with your image path
-
+    # st.sidebar.title("\n")
+    # st.sidebar.markdown("")
+    # st.sidebar.markdown("")
+    # st.sidebar.markdown("")
+    # st.sidebar.image(
+    #     "images/Reckitt_logo.png", use_column_width=True
+    # )  # Replace with your image path
+    st.sidebar.markdown(
+        f"""
+        <div>
+            <img src="data:image/png;base64,{base64.b64encode(open('images/Reckitt_logo.png', 'rb').read()).decode()}" 
+            class="sidebar-image" alt="Reckitt Logo"/>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
     st.markdown(
         """
         <style>
@@ -50,20 +112,20 @@ if st.session_state["authentication_status"]:
         """,
         unsafe_allow_html=True,
     )
-    st.markdown(
-        """
-            <style> 
-            .st-emotion-cache-pgf13w {margin-top: -170px;}
-            .st-emotion-cache-6dnr6u{margin-top: -115px;}
-            .st-emotion-cache-1v0mbdj{margin-top:-140px;}
-            .st-emotion-cache-bm2z3a{margin-left:-40px;}
-            .st-emotion-cache-pgf13w h1 {margin-bottom: -10px;}
-            .st-emotion-cache-1t8h08j h2 {margin-top: -10px;}
-            .st-emotion-cache-m78myu {margin-top: -150px;}
-            </style>
-            """,
-        unsafe_allow_html=True,
-    )
+    # st.markdown(
+    #     """
+    #         <style>
+    #         .st-emotion-cache-pgf13w {margin-top: -170px;}
+    #         .st-emotion-cache-6dnr6u{margin-top: -115px;}
+    #         .st-emotion-cache-1v0mbdj{margin-top:-140px;}
+    #         .st-emotion-cache-bm2z3a{margin-left:-40px;}
+    #         .st-emotion-cache-pgf13w h1 {margin-bottom: -10px;}
+    #         .st-emotion-cache-1t8h08j h2 {margin-top: -10px;}
+    #         .st-emotion-cache-m78myu {margin-top: -150px;}
+    #         </style>
+    #         """,
+    #     unsafe_allow_html=True,
+    # )
 
     st.markdown(
         """

@@ -232,28 +232,109 @@ def sherlock():
     if "disabled" not in st.session_state:
         st.session_state.disabled = False
 
-    col1, col2, col3 = st.columns([2, 13, 3])
+    # Add responsive CSS for columns and elements
+    st.markdown(
+        """
+        <style>
+            /* Flex container for columns */
+            [data-testid="column-container"] {
+                display: flex !important;
+                flex-direction: row !important;
+                width: 100% !important;
+                flex-wrap: nowrap !important;
+                gap: 1rem !important;
+                align-items: center !important;
+            }
+            
+            /* Column widths */
+            [data-testid="column"]:nth-of-type(1) {
+                flex: 0 0 10% !important;
+                min-width: 80px !important;
+            }
+            
+            [data-testid="column"]:nth-of-type(2) {
+                flex: 0 0 80% !important;
+            }
+            
+            [data-testid="column"]:nth-of-type(3) {
+                flex: 0 0 10% !important;
+                min-width: 120px !important;
+            }
+            
+            /* Responsive image */
+            [data-testid="column"]:nth-of-type(1) img {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100px !important;
+                object-fit: contain !important;
+            }
+            
+            /* Button styling */
+            .stButton button {
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                width: 100% !important;
+                min-width: 120px !important;
+            }
+            
+            /* Mobile responsiveness */
+            @media (max-width: 768px) {
+                [data-testid="column-container"] {
+                    flex-direction: column !important;
+                    gap: 0.5rem !important;
+                }
+                
+                [data-testid="column"] {
+                    width: 100% !important;
+                    text-align: center !important;
+                }
+                
+                [data-testid="column"]:nth-of-type(1) img {
+                    max-width: 60px !important;
+                }
+                
+                .stButton button {
+                    min-width: 100px !important;
+                    font-size: 14px !important;
+                }
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # Create columns with specified ratios
+    col1, col2, col3 = st.columns([1, 8, 1])
+
     with col1:
-        # st.markdown('\n')
-        st.image("images/hosp.jpg", use_column_width="auto")
+        st.image("images/hosp.jpg", width=100)
+
     with col2:
-        st.markdown("\n")
         st.markdown(
-            "# Sherlock Agent\n_Built on top of the Sherlock Dashboard and the following datasets - 'hospital_report' and 'pos_inventory_data'_"
+            """
+            <div style="text-align: center;">
+                <h1 style="margin: 0; font-size: clamp(24px, 4vw, 32px);">MAX</h1>
+                <p style="margin: 0; font-size: clamp(14px, 2vw, 18px);">Modern Analytics Xplorer/Xpert</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
         )
 
     with col3:
-        # st.markdown('\n')
-        if st.button(
-            "Clear Conversation", help="Click to reset the app", type="primary"
-        ):
-            if "messages" in st.session_state:
-                st.session_state.messages = []
-            st.rerun()
+        st.button(
+            "Clear",
+            help="Click to reset the app",
+            type="primary",
+            key="clear_button",
+            on_click=lambda: (
+                st.session_state.update({"messages": []})
+                if "messages" in st.session_state
+                else None
+            ),
+        )
 
-    prompt = st.chat_input(
-        "Enter Your Query Here...", disabled=st.session_state.disabled
-    )
+    prompt = st.chat_input("Ask Max......", disabled=st.session_state.disabled)
     if prompt:
         # Display chat messages from history on app rerun
         for message in st.session_state.messages:
@@ -425,9 +506,7 @@ def supply():
                 st.session_state.messages_supply = []
             st.rerun()
 
-    prompt = st.chat_input(
-        "Enter Your Query Here...", disabled=st.session_state.disabled_supply
-    )
+    prompt = st.chat_input("Ask Max......", disabled=st.session_state.disabled_supply)
     if prompt:
         # Display chat messages from history on app rerun
         for message in st.session_state.messages_supply:
