@@ -363,7 +363,7 @@ def sherlock():
         # Add response message to chat history
         st.session_state.messages.append({"role": "assistant", "content": response})
 
-    st.sidebar.markdown("## Most Popular Questions this Week")
+    st.sidebar.markdown("## Hot Topics")
 
     que1 = "Monthly rolling trend of hospital contracts won by MJN"
     if st.sidebar.button(que1):
@@ -537,7 +537,7 @@ def supply():
             {"role": "assistant", "content": response}
         )
 
-    st.sidebar.markdown("## Most Popular Questions this Week")
+    st.sidebar.markdown("## Hot Topics")
 
     que1 = "What was the total cost to serve the German market in 2023"
     if st.sidebar.button(que1):
@@ -586,3 +586,186 @@ def supply():
         # st.session_state.messages = []
         prompt = "Specify cost savings for Customer ID Dir_121"
         push_button_supply(que9, prompt)
+
+def max():
+    # Initialize chat history
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+    if "disabled" not in st.session_state:
+        st.session_state.disabled = False
+
+    # Create columns with specified ratios
+    col1, col2, col3 = st.columns([1.25, 8, 1],vertical_alignment="center", gap="small")
+
+    with col1:
+        st.image("images/hosp.jpg", width=100)
+
+    with col2:
+        st.markdown(
+            """
+            <div style="text-align: left;">
+                <h1 style="margin: 0; font-size: clamp(24px, 4vw, 32px); padding: 0px;">MAX</h1>
+                <p style="margin: 0; font-size: clamp(14px, 2vw, 18px);">Modern Analytics Xplorer/Xpert</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    with col3:
+        st.button(
+            "Clear",
+            help="Click to reset the app",
+            type="primary",
+            key="clear_button",
+            on_click=lambda: (
+                st.session_state.update({"messages": []})
+                if "messages" in st.session_state
+                else None
+            ),
+        )
+
+    prompt = st.chat_input("Ask Max......", disabled=st.session_state.disabled)
+    if prompt:
+        # Display chat messages from history on app rerun
+        for message in st.session_state.messages:
+            display_content(message["content"], message["role"], streaming=False)
+        print("Given Query: ", prompt)
+        # Display user message
+        with st.chat_message("user"):
+            st.markdown(prompt)
+        # Add user message to chat history
+        st.session_state.messages.append({"role": "user", "content": prompt})
+        # Getting Answers
+        response = None
+        print("Checking for a Valid Query...")
+        valid_q = fuzzy_match.check_closest_match(prompt)
+        print("Matched to valid question:", valid_q)
+        if valid_q in query_lis:
+            idx = query_lis.index(valid_q)
+            response = qna[idx]["response"]
+        else:
+            response = {}
+            response["answer"] = (
+                "I don't have exposure to enough data to answer this question."
+            )
+        # Display Assistant Response
+        display_content(response, "assistant")
+        # Add response message to chat history
+        st.session_state.messages.append({"role": "assistant", "content": response})
+
+    st.sidebar.markdown("## Hot Topics")
+
+    que1 = "Monthly rolling trend of hospital contracts won by MJN"
+    if st.sidebar.button(que1):
+        # st.session_state.messages = []
+        prompt = "month hospitals contracts net rolling won lost"
+        push_button(que1, prompt)
+
+    que3 = "How many births has MJN gained since 2022?"
+    if st.sidebar.button(que3):
+        # st.session_state.messages = []
+        prompt = "quarter births net won lost"
+        push_button(que3, prompt)
+
+    que15 = "Which retailers are having the best YOY growth for POS Sales?"
+    if st.sidebar.button(que15):
+        # st.session_state.messages = []
+        prompt = "retailers yoy growth best"
+        push_button(que15, prompt)
+
+    que5 = "Show state-wise performance for hospital contracts won"
+    if st.sidebar.button(que5):
+        # st.session_state.messages = []
+        prompt = "state net hospitals won"
+        push_button(que5, prompt)
+
+    que11 = "Compare monthly sales trends across top brands"
+    if st.sidebar.button(que11):
+        # st.session_state.messages = []
+        prompt = "month sales brand trend"
+        push_button(que11, prompt)
+
+    que6 = "Which hospital contracts are coming up for renewal?"
+    if st.sidebar.button(que6):
+        # st.session_state.messages = []
+        prompt = "hospitals contracts coming renewal expire"
+        push_button(que6, prompt)
+
+    que16 = "Which retailers are showing a decline in POS Sales?"
+    if st.sidebar.button(que16):
+        # st.session_state.messages = []
+        prompt = "retailers yoy growth negative"
+        push_button(que16, prompt)
+
+    que13 = "Show monthly sales trends for top retailers"
+    if st.sidebar.button(que13):
+        # st.session_state.messages = []
+        prompt = "month sales retailer trend"
+        push_button(que13, prompt)
+
+    que9 = "Which are the biggest hospitals that MJN has lost?"
+    if st.sidebar.button(que9):
+        # st.session_state.messages = []
+        prompt = "biggest hospital lost"
+        push_button(que9, prompt)
+
+    que12 = "Effect of Net Births Won on POS Sales"
+    if st.sidebar.button(que12):
+        # st.session_state.messages = []
+        prompt = "trend pos sales net births won comparison"
+        push_button(que12, prompt)
+
+    que8 = "States with the best / worst birth share for Reckitt"
+    if st.sidebar.button(que8):
+        # st.session_state.messages = []
+        prompt = "% percentage share birth state"
+        push_button(que8, prompt)
+
+    que14 = "Monthly POS sales in top performing states"
+    if st.sidebar.button(que14):
+        # st.session_state.messages = []
+        prompt = "month sales state trend"
+        push_button(que14, prompt)
+
+    que2 = "Quarterly trend of hospital contracts won by MJN"
+    if st.sidebar.button(que2):
+        # st.session_state.messages = []
+        prompt = "quarter hospitals net won lost"
+        push_button(que2, prompt)
+
+    que4 = "Monthly rolling trend of number of births won by MJN"
+    if st.sidebar.button(que4):
+        # st.session_state.messages = []
+        prompt = "month births net won lost"
+        push_button(que4, prompt)
+
+    que17 = "Monthly trend of hospital contracts won by MJN in 2024"
+    if st.sidebar.button(que17):
+        # st.session_state.messages = []
+        prompt = "month hospitals contracts net rolling won lost 2024"
+        push_button(que17, prompt)
+
+    que18 = "Monthly trend of hospital contracts won by MJN in 2023"
+    if st.sidebar.button(que18):
+        # st.session_state.messages = []
+        prompt = "month hospitals contracts net rolling won lost 2023"
+        push_button(que18, prompt)
+
+    que19 = "How many births has MJN gained since 2023?"
+    if st.sidebar.button(que19):
+        # st.session_state.messages = []
+        prompt = "quarter births net won lost 2023"
+        push_button(que19, prompt)
+
+    que20 = "How many births has MJN gained since 2024?"
+    if st.sidebar.button(que20):
+        # st.session_state.messages = []
+        prompt = "quarter births net won lost 2024"
+        push_button(que20, prompt)
+
+    que10 = "In which states does MJN have the most number of opportunity cities?"
+    if st.sidebar.button(que10):
+        # st.session_state.messages = []
+        prompt = "highest opportunity state"
+        push_button(que10, prompt)
+

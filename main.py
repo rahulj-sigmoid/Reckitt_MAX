@@ -7,7 +7,7 @@ pd.options.display.float_format = "{:.0f}".format
 import helper
 import time
 
-st.set_page_config(page_title="QueryBot", layout="wide")
+st.set_page_config(page_title="MAX", layout="wide", initial_sidebar_state='collapsed')
 
 #interface
 col1, col2 = st.columns([0.5, 13])
@@ -39,7 +39,7 @@ with col1:
     st.image("images/chat-xxl.png", width=50)
 with col2:
     st.markdown(
-        "<h1 style='text-align: left;'>Data Companion</h1>", 
+        "<h1 style='text-align: left; padding-left: 10px;'>Data Companion</h1>", 
         unsafe_allow_html=True
     )
 
@@ -49,23 +49,24 @@ st.markdown(
     <style>
         /* Responsive image sizing */
         .sidebar-image {
-            width: 100%;
-            max-width: 200px;
+            width: 150px;
+            max-width: 10px;
             height: auto;
             margin: 0 auto;
             display: block;
+            padding: 10px;
         }
         
         /* Viewport-based scaling */
         @media (max-width: 768px) {
             .sidebar-image {
-                max-width: 150px;
+                max-width: 100px;
             }
         }
         
         @media (max-width: 480px) {
             .sidebar-image {
-                max-width: 100px;
+                max-width: 80px;
             }
         }
     </style>
@@ -75,7 +76,7 @@ st.markdown(
 
 st.sidebar.markdown(
     f"""
-    <div>
+    <div style="text-align: center;">
         <img src="data:image/png;base64,{base64.b64encode(open('images/Reckitt_logo.png', 'rb').read()).decode()}" 
         class="sidebar-image" alt="Reckitt Logo" />
     </div>
@@ -165,17 +166,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-pages = {"Sherlock": helper.sherlock, "Supply Chain": helper.supply}
-selected_page = st.sidebar.radio("Business Agent: ", list(pages.keys()))
-
-st.markdown(
-    """<style>
-    div[class*="stRadio"] > label > div[data-testid="stMarkdownContainer"] > p {font-size: 20px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-pages[selected_page]()
+# Remove the pages dictionary and radio selection
+# Instead directly call the new max() function
+helper.max()
 
