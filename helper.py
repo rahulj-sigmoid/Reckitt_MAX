@@ -233,76 +233,76 @@ def sherlock():
         st.session_state.disabled = False
 
     # Add responsive CSS for columns and elements
-    st.markdown(
-        """
-        <style>
-            /* Flex container for columns */
-            [data-testid="column-container"] {
-                display: flex !important;
-                flex-direction: row !important;
-                width: 100% !important;
-                flex-wrap: nowrap !important;
-                gap: 1rem !important;
-                align-items: center !important;
-            }
-            
-            /* Column widths */
-            [data-testid="column"]:nth-of-type(1) {
-                flex: 0 0 10% !important;
-                min-width: 80px !important;
-            }
-            
-            [data-testid="column"]:nth-of-type(2) {
-                flex: 0 0 80% !important;
-            }
-            
-            [data-testid="column"]:nth-of-type(3) {
-                flex: 0 0 10% !important;
-                min-width: 120px !important;
-            }
-            
-            /* Responsive image */
-            [data-testid="column"]:nth-of-type(1) img {
-                width: 100% !important;
-                height: auto !important;
-                max-width: 100px !important;
-                object-fit: contain !important;
-            }
-            
-            /* Button styling */
-            .stButton button {
-                white-space: nowrap !important;
-                overflow: hidden !important;
-                text-overflow: ellipsis !important;
-                width: 100% !important;
-                min-width: 120px !important;
-            }
-            
-            /* Mobile responsiveness */
-            @media (max-width: 768px) {
-                [data-testid="column-container"] {
-                    flex-direction: column !important;
-                    gap: 0.5rem !important;
-                }
-                
-                [data-testid="column"] {
-                    width: 100% !important;
-                    text-align: center !important;
-                }
-                
-                [data-testid="column"]:nth-of-type(1) img {
-                    max-width: 60px !important;
-                }
-                
-                .stButton button {
-                    min-width: 100px !important;
-                    font-size: 14px !important;
-                }
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
+    # st.markdown(
+    #     """
+    #     <style>
+    #         /* Flex container for columns */
+    #         [data-testid="column-container"] {
+    #             display: flex !important;
+    #             flex-direction: row !important;
+    #             width: 100% !important;
+    #             flex-wrap: nowrap !important;
+    #             gap: 1rem !important;
+    #             align-items: center !important;
+    #         }
+
+    #         /* Column widths */
+    #         [data-testid="column"]:nth-of-type(1) {
+    #             flex: 0 0 10% !important;
+    #             min-width: 80px !important;
+    #         }
+
+    #         [data-testid="column"]:nth-of-type(2) {
+    #             flex: 0 0 80% !important;
+    #         }
+
+    #         [data-testid="column"]:nth-of-type(3) {
+    #             flex: 0 0 10% !important;
+    #             min-width: 120px !important;
+    #         }
+
+    #         /* Responsive image */
+    #         [data-testid="column"]:nth-of-type(1) img {
+    #             width: 100% !important;
+    #             height: auto !important;
+    #             max-width: 100px !important;
+    #             object-fit: contain !important;
+    #         }
+
+    #         /* Button styling */
+    #         .stButton button {
+    #             white-space: nowrap !important;
+    #             overflow: hidden !important;
+    #             text-overflow: ellipsis !important;
+    #             width: 100% !important;
+    #             min-width: 120px !important;
+    #         }
+
+    #         /* Mobile responsiveness */
+    #         @media (max-width: 768px) {
+    #             [data-testid="column-container"] {
+    #                 flex-direction: column !important;
+    #                 gap: 0.5rem !important;
+    #             }
+
+    #             [data-testid="column"] {
+    #                 width: 100% !important;
+    #                 text-align: center !important;
+    #             }
+
+    #             [data-testid="column"]:nth-of-type(1) img {
+    #                 max-width: 60px !important;
+    #             }
+
+    #             .stButton button {
+    #                 min-width: 100px !important;
+    #                 font-size: 14px !important;
+    #             }
+    #         }
+    #     </style>
+    #     """,
+    #     unsafe_allow_html=True,
+    # )
 
     # Create columns with specified ratios
     col1, col2, col3 = st.columns([1, 8, 1])
