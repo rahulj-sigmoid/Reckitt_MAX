@@ -3,6 +3,7 @@ import streamlit as st
 import fuzzy_match
 import fuzzy_match_supply
 import json
+from datetime import datetime
 
 qna = json.load(open("qna.json", "rb"))
 qna_supply = json.load(open("qna_supply.json", "rb"))
@@ -35,7 +36,8 @@ def write_text(text, streaming):
 
 def display_content(response, user, streaming=True):
     # Add Material Icons CSS
-    st.markdown("""
+    st.markdown(
+        """
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <style>
             .material-icons {
@@ -50,8 +52,10 @@ def display_content(response, user, streaming=True):
                 background-color: #ffffff !important;
             }
         </style>
-    """, unsafe_allow_html=True)
-    
+    """,
+        unsafe_allow_html=True,
+    )
+
     global count
     col1, col2 = st.columns([8, 2])
     col3, col4 = st.columns([4, 6])
@@ -120,22 +124,30 @@ def display_content(response, user, streaming=True):
                 # Add interaction buttons in a horizontal layout
                 button_cols = st.columns([1, 1, 1, 15])  # 4 buttons + spacing
                 with button_cols[0]:
-                    st.markdown('<button class="material-icons">thumb_up</button>', unsafe_allow_html=True)
+                    st.markdown(
+                        '<button class="material-icons">thumb_up</button>',
+                        unsafe_allow_html=True,
+                    )
                 with button_cols[1]:
-                    st.markdown('<button class="material-icons">thumb_down</button>', unsafe_allow_html=True)
+                    st.markdown(
+                        '<button class="material-icons">thumb_down</button>',
+                        unsafe_allow_html=True,
+                    )
                 with button_cols[2]:
-                    st.markdown('<button class="material-icons">share</button>', unsafe_allow_html=True)
+                    st.markdown(
+                        '<button class="material-icons">share</button>',
+                        unsafe_allow_html=True,
+                    )
                 count += 1
 
         with col2:
             st.markdown("")
     elif user == "user":
         with col3:
-            st.markdown(" ")        
+            st.markdown(" ")
         with col4:
             with st.chat_message("user"):
                 st.markdown(response)
-            
 
 
 def display_content_supply(response, user, streaming=True):
@@ -266,12 +278,32 @@ def max():
     # Initialize chat history
     if "messages" not in st.session_state:
         st.session_state.messages = []
+    if "recent_chats" not in st.session_state:
+        st.session_state.recent_chats = []
     if "disabled" not in st.session_state:
         st.session_state.disabled = False
 
     # Create columns with specified ratios
-    col1, col2, col3 = st.columns([1.25, 8, 1],vertical_alignment="center", gap="small")
+    col1, col2, col3 = st.columns(
+        [1.25, 8, 1], vertical_alignment="center", gap="small"
+    )
 
+    def handle_save_chat():
+        # Update recent chats (limiting to 5 most recent)
+        if "messages" in st.session_state and st.session_state.messages:
+            new_chat = {
+                "title": f"Chat on {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+                "messages": st.session_state.messages.copy(),
+            }
+            if "recent_chats" not in st.session_state:
+                st.session_state.recent_chats = []
+            st.session_state.recent_chats.append(new_chat)
+            if len(st.session_state.recent_chats) > 5:
+                st.session_state.recent_chats.pop(0)
+
+    # Clear current messages
+    if "messages" in st.session_state:
+        st.session_state.messages = []
     with col1:
         st.image("images/hosp.jpg", width=100)
 
@@ -287,6 +319,13 @@ def max():
         )
 
     with col3:
+        st.button(
+            "Save",
+            help="Click to save the chat",
+            type="primary",
+            key="save_button",
+            on_click=handle_save_chat,
+        )
         st.button(
             "Clear",
             help="Click to reset the app",
@@ -326,8 +365,11 @@ def max():
         display_content(response, "assistant")
         # Add response message to chat history
         st.session_state.messages.append({"role": "assistant", "content": response})
-
-    st.sidebar.markdown("## Hot Topics")
+    # Recent Chats Section
+    st.sidebar.header("Saved Chats")
+    for idx, chat in enumerate(reversed(st.session_state.recent_chats), 1):
+        st.sidebar.write(f"{idx}. {chat['title']}")
+    st.sidebar.header("Hot Topics")
 
     que1 = "Monthly rolling trend of hospital contracts won by MJN"
     if st.sidebar.button(que1):
@@ -442,4 +484,3 @@ def max():
         # st.session_state.messages = []
         prompt = "highest opportunity state"
         push_button(que10, prompt)
-
