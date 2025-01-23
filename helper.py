@@ -35,69 +35,78 @@ def write_text(text, streaming):
 
 def display_content(response, user, streaming=True):
     global count
+    col1, col2 = st.columns([8, 2])
+    col3, col4 = st.columns([4, 6])
+
     if user == "assistant":
-        with st.chat_message("assistant"):
-            # Display any observations/responses
-            write_text(response["answer"], streaming)
+        with col1:
+            with st.chat_message("assistant"):
+                # Display any observations/responses
+                write_text(response["answer"], streaming)
 
-            # For DataFrames
-            if response.get("dataframe", ""):
-                dataframe = response["dataframe"]
-                if dataframe != []:
-                    for df in dataframe:
-                        if df.get("text1", "") != "":
-                            write_text(df["text1"], streaming)
-                        if df.get("code_path", "") != "":
-                            with open(df["code_path"], "r") as f:
-                                code = f.read()
-                            exec(code, globals())
-                            if streaming:
-                                time.sleep(2)
-                                st.dataframe(globals()["xx"], key=count)
-                                count = count + 1
-                            else:
-                                st.dataframe(globals()["xx"], key=count)
-                                count = count + 1
-                        if df.get("text2", "") != "":
-                            # st.write_stream(response_generator(topic.get('text2')))
-                            write_text(df["text2"], streaming)
-            # For Plots
-            if response.get("graphs", None):
-                graphs = response["graphs"]
-                if graphs != []:
-                    for topic in graphs:
-                        if topic.get("text1", "") != "":
-                            write_text(topic["text1"], streaming)
-                            time.sleep(0.1)
-                        if topic.get("code_path", "") != "":
-                            with open(topic["code_path"], "r") as f:
-                                code = f.read()
-                            exec(code, globals())
-                            time.sleep(0.3)
-                            if streaming:
-                                time.sleep(2)
-                                st.plotly_chart(globals()["fig"], key=count)
-                                count = count + 1
-                            else:
-                                st.plotly_chart(globals()["fig"], key=count)
-                                count = count + 1
-                        if topic.get("path", "") != "":
-                            st.image(topic["path"])
-                            time.sleep(0.1)
-                        if topic.get("text2", "") != "":
-                            # st.write_stream(response_generator(topic.get('text2')))
-                            write_text(topic["text2"], streaming)
-            # For Links
-            if response.get("link", "") != "":
-                tab_name = response.get("tab_name", "")
-                st.write(
-                    f"**The information is also available in the 'Sherlock' Dashboard, in the {tab_name}**"
-                )
-                st.link_button(label="Link To Dashboard", url=response["link"])
-
+                # For DataFrames
+                if response.get("dataframe", ""):
+                    dataframe = response["dataframe"]
+                    if dataframe != []:
+                        for df in dataframe:
+                            if df.get("text1", "") != "":
+                                write_text(df["text1"], streaming)
+                            if df.get("code_path", "") != "":
+                                with open(df["code_path"], "r") as f:
+                                    code = f.read()
+                                exec(code, globals())
+                                if streaming:
+                                    time.sleep(2)
+                                    st.dataframe(globals()["xx"], key=count)
+                                    count = count + 1
+                                else:
+                                    st.dataframe(globals()["xx"], key=count)
+                                    count = count + 1
+                            if df.get("text2", "") != "":
+                                # st.write_stream(response_generator(topic.get('text2')))
+                                write_text(df["text2"], streaming)
+                # For Plots
+                if response.get("graphs", None):
+                    graphs = response["graphs"]
+                    if graphs != []:
+                        for topic in graphs:
+                            if topic.get("text1", "") != "":
+                                write_text(topic["text1"], streaming)
+                                time.sleep(0.1)
+                            if topic.get("code_path", "") != "":
+                                with open(topic["code_path"], "r") as f:
+                                    code = f.read()
+                                exec(code, globals())
+                                time.sleep(0.3)
+                                if streaming:
+                                    time.sleep(2)
+                                    st.plotly_chart(globals()["fig"], key=count)
+                                    count = count + 1
+                                else:
+                                    st.plotly_chart(globals()["fig"], key=count)
+                                    count = count + 1
+                            if topic.get("path", "") != "":
+                                st.image(topic["path"])
+                                time.sleep(0.1)
+                            if topic.get("text2", "") != "":
+                                # st.write_stream(response_generator(topic.get('text2')))
+                                write_text(topic["text2"], streaming)
+                # For Links
+                if response.get("link", "") != "":
+                    tab_name = response.get("tab_name", "")
+                    st.write(
+                        f"**The information is also available in the 'Sherlock' Dashboard, in the {tab_name}**"
+                    )
+                    st.link_button(label="Link To Dashboard", url=response["link"])
+        with col2:
+            st.markdown("")
     elif user == "user":
-        with st.chat_message("user"):
-            st.markdown(response)
+        with col3:
+            st.markdown(" ")        
+        with col4:
+            with st.chat_message("user"):
+                st.markdown(response)
+            
 
 
 def display_content_supply(response, user, streaming=True):
@@ -174,8 +183,7 @@ def push_button(label, actual):
     for message in st.session_state.messages:
         display_content(message["content"], message["role"], streaming=False)
     # Display user message
-    with st.chat_message("user"):
-        st.markdown(label)
+    display_content(label, "user")
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": label})
     # Getting Answers
@@ -631,8 +639,7 @@ def max():
             display_content(message["content"], message["role"], streaming=False)
         print("Given Query: ", prompt)
         # Display user message
-        with st.chat_message("user"):
-            st.markdown(prompt)
+        display_content(prompt, "user")
         # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
         # Getting Answers
@@ -649,7 +656,7 @@ def max():
                 "I don't have exposure to enough data to answer this question."
             )
         # Display Assistant Response
-        display_content(response, "assistant")
+        display_content(response, "user")
         # Add response message to chat history
         st.session_state.messages.append({"role": "assistant", "content": response})
 

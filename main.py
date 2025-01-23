@@ -84,6 +84,21 @@ st.sidebar.markdown(
     unsafe_allow_html=True,
 )
 
+st.markdown("""
+        <style> 
+        .st-emotion-cache-1c7y2kd{ 
+            padding: 10px; 
+            background-color: #facfe5 !important;
+           
+        }
+        .st-emotion-cache-4oy321 { 
+            padding: 10px; 
+            background-color: #ebebeb !important;
+           
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
 st.markdown(
     """
     <style>
