@@ -6,78 +6,57 @@ import base64
 pd.options.display.float_format = "{:.0f}".format
 import helper
 import time
-import streamlit as st
-import streamlit_authenticator as stauth
-import json
 
-config = json.load(open("creds.json", "rb"))
-st.set_page_config(page_title="QueryBot", layout="wide")
+st.set_page_config(page_title="MAX", layout="wide", initial_sidebar_state='collapsed')
 
-# Authentication setup
-authenticator = stauth.Authenticate(
-    config["credentials"],
-    config["cookie"]["name"],
-    config["cookie"]["key"],
-    config["cookie"]["expiry_days"],
+
+st.sidebar.markdown(
+    f"""
+    <div style="text-align: center;">
+        <img src="data:image/png;base64,{base64.b64encode(open('images/Max_logo.png', 'rb').read()).decode()}" 
+        class="sidebar-image" alt="Max Logo" />
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
 
-# Login interface
-col1, col2 = st.columns([0.5, 13])
-with col1:
-    st.markdown(
-        """
-        <style>
-            [data-testid="stImage"] > img {
-                max-width: 100%;
-                width: auto;
-                height: auto;
-            }
-            
-            @media (max-width: 768px) {
-                [data-testid="stImage"] > img {
-                    max-width: 40px;
-                }
-            }
-            
-            @media (max-width: 480px) {
-                [data-testid="stImage"] > img {
-                    max-width: 30px;
-                }
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.image(
-        "images/chat-xxl.png", width=50
-    )  # Set a base width that will be modified by CSS
-with col2:
-    st.markdown(
-        "<h1 style='text-align: left;'>Data Companion</h1>", unsafe_allow_html=True
-    )
-authenticator.login("main")
+st.markdown(
+    """
+    <style>
+        section[data-testid="stSidebar"] {
+            width: 20% !important; # Set the width to your desired value
+        }
+        .st-emotion-cache-kgpedg {
+            padding-bottom: 0px !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 st.markdown(
     """
     <style>
         /* Responsive image sizing */
         .sidebar-image {
-            width: 100%;
-            max-width: 200px;
+            width: 150px;
+            max-width: 10px;
             height: auto;
             margin: 0 auto;
             display: block;
+            padding: 10px;
         }
         
         /* Viewport-based scaling */
         @media (max-width: 768px) {
             .sidebar-image {
-                max-width: 150px;
+                max-width: 100px;
             }
         }
         
         @media (max-width: 480px) {
             .sidebar-image {
-                max-width: 100px;
+                max-width: 80px;
             }
         }
     </style>
@@ -85,140 +64,99 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-if st.session_state["authentication_status"]:
-    # st.sidebar.title("\n")
-    # st.sidebar.markdown("")
-    # st.sidebar.markdown("")
-    # st.sidebar.markdown("")
-    # st.sidebar.image(
-    #     "images/Reckitt_logo.png", use_column_width=True
-    # )  # Replace with your image path
-    st.sidebar.markdown(
-        f"""
-        <div>
-            <img src="data:image/png;base64,{base64.b64encode(open('images/Reckitt_logo.png', 'rb').read()).decode()}" 
-            class="sidebar-image" alt="Reckitt Logo"/>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        """
-        <style>
-            section[data-testid="stSidebar"] {
-                width: 20% !important; # Set the width to your desired value
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-    # st.markdown(
-    #     """
-    #         <style>
-    #         .st-emotion-cache-pgf13w {margin-top: -170px;}
-    #         .st-emotion-cache-6dnr6u{margin-top: -115px;}
-    #         .st-emotion-cache-1v0mbdj{margin-top:-140px;}
-    #         .st-emotion-cache-bm2z3a{margin-left:-40px;}
-    #         .st-emotion-cache-pgf13w h1 {margin-bottom: -10px;}
-    #         .st-emotion-cache-1t8h08j h2 {margin-top: -10px;}
-    #         .st-emotion-cache-m78myu {margin-top: -150px;}
-    #         </style>
-    #         """,
-    #     unsafe_allow_html=True,
-    # )
+# helper.max()
+pg = st.navigation([ st.Page("pages/chat.py", title="Chat with Max", icon=":material/chat:"), st.Page("pages/experts.py", title="Explore Experts", icon=":material/groups:")])
+pg.run()
 
-    st.markdown(
-        """
-            <style>
-                    /* Apply color to all markdown text */
-                    .stMarkdown p {
-                        color: #E31279;
-                    }
-                    .stMarkdown h1 {
-                        color: #E31279;
-                    }
-                    .stMarkdown li {
-                        color: #E31279;
-                    }
-                    .st-emotion-cache-1rsyhoq h2 {
-                        color: #E31279;
-                    }
-                    .st-emotion-cache-1ny7cjd p {
-                        color: #E31279t;
-                        }
-                    .stRadio p {
-                    color: #E31279;
-                    }
-                    .st-emotion-cache-6nrhu6 {color: #E31279;}
-                    .stLinkButton p {color: #E31279;}
-            </style>
-            """,
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        """
-                <style>
-                button[kind="secondary"]
-                {
-                    margin-left:-5px;
-                    margin-right:-5px;
-                    background-color: white;
-                }
-                    button[kind="secondary"] p {
-                    font-size: 14px;
-                    color:  #E31279;
-                }
-                </style>
-                """,
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        """
-                <style>
-                button[kind="primary"]{
-                    background-color: #E31279;
-                }
-                button[kind="primary"] p {
-                    color:  white;
-                }
-                </style>
-                """,
-        unsafe_allow_html=True,
-    )
-
-    # CSS for custom styling
-    st.markdown(
-        """
+st.markdown("""
         <style> 
-        .stChatInput{  
-            border: 2px solid #E31279; !important;
-
-        }  
-        """,
-        unsafe_allow_html=True,
-    )
-
-    pages = {"Sherlock": helper.sherlock, "Supply Chain": helper.supply}
-    selected_page = st.sidebar.radio("Business Agent: ", list(pages.keys()))
-    authenticator.logout("Logout", "sidebar")  # Add logout button to the sidebar
-
-    st.markdown(
-        """<style>
-        div[class*="stRadio"] > label > div[data-testid="stMarkdownContainer"] > p {font-size: 20px;
-    }
+        .st-emotion-cache-1c7y2kd{ 
+            padding: 10px; 
+            background-color: #facfe5 !important;
+           
+        }
+        .st-emotion-cache-4oy321 { 
+            padding: 10px; 
+            background-color: #ebebeb !important;
+           
+        }
         </style>
-        """,
-        unsafe_allow_html=True,
-    )
+        """, unsafe_allow_html=True)
 
-    pages[selected_page]()
+st.markdown(
+    """
+    <style>
+        /* Apply color to all markdown text */
+        .stMarkdown p {
+            color: #E31279;
+        }
+        .stMarkdown h1 {
+            color: #E31279;
+        }
+        .stMarkdown li {
+            color: #E31279;
+        }
+        .st-emotion-cache-1rsyhoq h2 {
+            color: #E31279;
+        }
+        .st-emotion-cache-1ny7cjd p {
+            color: #E31279t;
+        }
+        .stRadio p {
+            color: #E31279;
+        }
+        .st-emotion-cache-6nrhu6 {color: #E31279;}
+        .stLinkButton p {color: #E31279;}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
-# If login is unsuccessful
-elif st.session_state["authentication_status"] == False:
-    st.error("Username/password is incorrect")
+st.markdown(
+    """
+    <style>
+        button[kind="secondary"] {
+            margin-left:-5px;
+            margin-right:-5px;
+            background-color: white;
+        }
+        button[kind="secondary"] p {
+            font-size: 14px;
+            color:  #E31279;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
-# If no authentication action yet
-elif st.session_state["authentication_status"] == None:
-    st.warning("Please enter your username and password")
+st.markdown(
+    """
+    <style>
+        button[kind="primary"]{
+            background-color: #E31279;
+        }
+        button[kind="primary"] p {
+            color:  white;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
+    <style> 
+    .stChatInput{  
+        border: 2px solid #E31279; !important;
+    }  
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+
+
+
+
+
+
