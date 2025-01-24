@@ -3,23 +3,32 @@ from datetime import datetime
 import helper
 
 # st.set_page_config(page_title="MAX", layout="wide", initial_sidebar_state='collapsed')
-
+welcome_response = {
+        "answer": "👋 Hello! I'm MAX (Modern Analytics Xplorer/Xpert). Feel free to ask me anything or check out the Hot Topics in the sidebar for some suggested questions!",
+        "dataframe": [],
+        "graphs": [],
+        "link": "",
+        "tab_name": ""
+    }
 chat_container = st.container()
 def handle_save_chat():
     # Update recent chats (limiting to 5 most recent)
     if "messages" in st.session_state and st.session_state.messages:
+        messages = st.session_state.messages.copy()
         new_chat = {
-            "title": f"Chat on {datetime.now().strftime('%Y-%m-%d %H:%M')}",
-            "messages": st.session_state.messages.copy(),
+            "title": f"Chat on {messages[0]["content"]if len(messages)%2==0 else messages[1]["content"]}",
+            "messages": messages,
         }
-        if "recent_chats" not in st.session_state:
-            st.session_state.recent_chats = []
-        st.session_state.recent_chats.append(new_chat)
-        if len(st.session_state.recent_chats) > 5:
-            st.session_state.recent_chats.pop(0)
+        if "saved_chats" not in st.session_state:
+            st.session_state.saved_chats = []
+        st.session_state.saved_chats.append(new_chat)
+        if len(st.session_state.saved_chats) > 5:
+            st.session_state.saved_chats.pop(0)
         # Clear current messages
         if "messages" in st.session_state:
             st.session_state.messages = []
+
+            
 
 with chat_container:
     header_cols = st.columns([8, 2])   
@@ -63,17 +72,13 @@ with chat_container:
 if "messages" not in st.session_state:
     st.session_state.messages = []
     # Add welcome message when session starts
-    welcome_response = {
-        "answer": "👋 Hello! I'm MAX (Modern Analytics Xplorer/Xpert). Feel free to ask me anything or check out the Hot Topics in the sidebar for some suggested questions!",
-        "dataframe": [],
-        "graphs": [],
-        "link": "",
-        "tab_name": ""
-    }
+   
     st.session_state.messages.append({"role": "assistant", "content": welcome_response})
     # Display welcome message immediately
     helper.display_content(welcome_response, "assistant", streaming=True, chat_container=chat_container)
 
+if "saved_chats" not in st.session_state:
+    st.session_state.saved_chats = []
 if "recent_chats" not in st.session_state:
     st.session_state.recent_chats = []
 if "disabled" not in st.session_state:
@@ -107,10 +112,24 @@ if prompt:
     helper.display_content(response, "assistant", chat_container=chat_container)
     # Add response message to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
+    messages = st.session_state.messages.copy()
+    new_chat = {
+    "title": f"Chat on {messages[0]["content"]if len(messages)%2==0 else messages[1]["content"]}",
+    "messages": messages,
+        }
+    st.session_state.recent_chats.append(new_chat)
+
+
 # Recent Chats Section
-saved_chats_expander = st.sidebar.expander("Saved Chats", icon=":material/bookmark:")
+recent_chats_expander = st.sidebar.expander("Recent Chats", icon=":material/schedule:")
 for idx, chat in enumerate(reversed(st.session_state.recent_chats), 1):
-    saved_chats_expander.write(f"{idx}. {chat['title']}")
+    recent_chats_expander.button(f"{idx}.{chat['title']}", use_container_width=True,key=f"{chat['title']}-{idx}")
+
+# Saved Chats Section
+saved_chats_expander = st.sidebar.expander("Saved Chats", icon=":material/bookmark:")
+for idx, chat in enumerate(reversed(st.session_state.saved_chats), 1):
+    saved_chats_expander.button(f"{idx}.{chat['title']}", use_container_width=True)
+
 
 
 # Hot Topics Section
