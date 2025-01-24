@@ -9,40 +9,29 @@ import time
 
 st.set_page_config(page_title="MAX", layout="wide", initial_sidebar_state='collapsed')
 
-#interface
-col1, col2 = st.columns([0.5, 13])
-with col1:
-    st.markdown(
-        """
-        <style>
-            [data-testid="stImage"] > img {
-                max-width: 100%;
-                width: auto;
-                height: auto;
-            }
-            
-            @media (max-width: 768px) {
-                [data-testid="stImage"] > img {
-                    max-width: 40px;
-                }
-            }
-            
-            @media (max-width: 480px) {
-                [data-testid="stImage"] > img {
-                    max-width: 30px;
-                }
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.image("images/chat-xxl.png", width=50)
-with col2:
-    st.markdown(
-        "<h1 style='text-align: left; padding-left: 10px;'>Data Companion</h1>", 
-        unsafe_allow_html=True
-    )
+st.sidebar.markdown(
+    f"""
+    <div style="text-align: center;">
+        <img src="data:image/png;base64,{base64.b64encode(open('images/Max_logo.png', 'rb').read()).decode()}" 
+        class="sidebar-image" alt="Max Logo" />
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
+st.markdown(
+    """
+    <style>
+        section[data-testid="stSidebar"] {
+            width: 20% !important; # Set the width to your desired value
+        }
+        .st-emotion-cache-kgpedg {
+            padding-bottom: 0px !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 st.markdown(
     """
@@ -74,15 +63,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.sidebar.markdown(
-    f"""
-    <div style="text-align: center;">
-        <img src="data:image/png;base64,{base64.b64encode(open('images/Reckitt_logo.png', 'rb').read()).decode()}" 
-        class="sidebar-image" alt="Reckitt Logo" />
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+helper.max()
 
 st.markdown("""
         <style> 
@@ -98,17 +79,6 @@ st.markdown("""
         }
         </style>
         """, unsafe_allow_html=True)
-
-st.markdown(
-    """
-    <style>
-        section[data-testid="stSidebar"] {
-            width: 20% !important; # Set the width to your desired value
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 
 st.markdown(
     """
@@ -183,5 +153,7 @@ st.markdown(
 
 # Remove the pages dictionary and radio selection
 # Instead directly call the new max() function
-helper.max()
+
+
+
 

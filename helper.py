@@ -269,20 +269,7 @@ def push_button_supply(label, actual):
 
 
 def max():
-    # Initialize chat history
-    if "messages" not in st.session_state:
-        st.session_state.messages = []
-    if "recent_chats" not in st.session_state:
-        st.session_state.recent_chats = []
-    if "disabled" not in st.session_state:
-        st.session_state.disabled = False
-
     chat_container = st.container()
-    # Create columns with specified ratios
-    col1, col2, col3 = st.columns(
-        [1.25, 8, 1], vertical_alignment="center", gap="small"
-    )
-
     def handle_save_chat():
         # Update recent chats (limiting to 5 most recent)
         if "messages" in st.session_state and st.session_state.messages:
@@ -298,45 +285,70 @@ def max():
             # Clear current messages
             if "messages" in st.session_state:
                 st.session_state.messages = []
-
-    # Clear current messages
-    # if "messages" in st.session_state:
-    #     st.session_state.messages = []
+   
 
     with chat_container:
-        with col1:
-            st.image("images/hosp.jpg", width=100)
+            header_cols = st.columns([8, 2])   
+            with header_cols[0]:
+                st.markdown(
+                        """
+                        <div style="text-align: left;">
+                            <h1 style="margin: 0; font-size: clamp(20px, 3vw, 32px); padding: 0;">MAX</h1>
+                            <p style="margin: 0; font-size: clamp(12px, 1.5vw, 18px);">Modern Analytics Xplorer/Xpert</p>
+                        </div>
+                        """,
+                        unsafe_allow_html=True,
+                    )
+                
+            with header_cols[1]:
+                    # Create columns for buttons with equal width
+                button_cols = st.columns(2)
+                with button_cols[0]:
+                        st.button(
+                            "Save",
+                            help="Click to save the chat",
+                            type="primary",
+                            key="save_button",
+                            on_click=handle_save_chat,
+                            use_container_width=True,
+                        )
+                with button_cols[1]:
+                    st.button(
+                            "Clear",
+                            help="Click to reset the app",
+                            type="primary",
+                            key="clear_button",
+                            on_click=lambda: (
+                                st.session_state.update({"messages": []})
+                                if "messages" in st.session_state
+                                else None
+                            ),
+                            use_container_width=True,
+                        )
 
-        with col2:
-            st.markdown(
-                """
-                <div style="text-align: left;">
-                    <h1 style="margin: 0; font-size: clamp(24px, 4vw, 32px); padding: 0px;">MAX</h1>
-                    <p style="margin: 0; font-size: clamp(14px, 2vw, 18px);">Modern Analytics Xplorer/Xpert</p>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
 
-    with col3:
-        st.button(
-            "Save",
-            help="Click to save the chat",
-            type="primary",
-            key="save_button",
-            on_click=handle_save_chat,
-        )
-        st.button(
-            "Clear",
-            help="Click to reset the app",
-            type="primary",
-            key="clear_button",
-            on_click=lambda: (
-                st.session_state.update({"messages": []})
-                if "messages" in st.session_state
-                else None
-            ),
-        )
+        
+        # Initialize chat history
+        
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+        # Add welcome message when session starts
+        welcome_response = {
+            "answer": "👋 Hello! I'm MAX (Modern Analytics Xplorer/Xpert). Feel free to ask me anything or check out the Hot Topics in the sidebar for some suggested questions!",
+            "dataframe": [],
+            "graphs": [],
+            "link": "",
+            "tab_name": ""
+        }
+        st.session_state.messages.append({"role": "assistant", "content": welcome_response})
+        # Display welcome message immediately
+        display_content(welcome_response, "assistant", streaming=True, chat_container=chat_container)
+    
+    if "recent_chats" not in st.session_state:
+        st.session_state.recent_chats = []
+    if "disabled" not in st.session_state:
+        st.session_state.disabled = False
+
 
     prompt = st.chat_input("Ask Max......", disabled=st.session_state.disabled)
 
@@ -367,13 +379,13 @@ def max():
         # Add response message to chat history
         st.session_state.messages.append({"role": "assistant", "content": response})
     # Recent Chats Section
-    saved_chats_expander = st.sidebar.expander("Saved Chats")
+    saved_chats_expander = st.sidebar.expander("Saved Chats", icon=":material/bookmark:")
     for idx, chat in enumerate(reversed(st.session_state.recent_chats), 1):
         saved_chats_expander.write(f"{idx}. {chat['title']}")
 
 
     # Hot Topics Section
-    hot_topics_expander = st.sidebar.expander("Hot Topics")
+    hot_topics_expander = st.sidebar.expander("Hot Topics", icon=":material/local_fire_department:")
 
     que1 = "Monthly rolling trend of hospital contracts won by MJN"
     if hot_topics_expander.button(que1):
