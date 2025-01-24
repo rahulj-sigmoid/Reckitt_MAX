@@ -9,6 +9,7 @@ import time
 
 st.set_page_config(page_title="MAX", layout="wide", initial_sidebar_state='collapsed')
 
+
 st.sidebar.markdown(
     f"""
     <div style="text-align: center;">
@@ -63,7 +64,9 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-helper.max()
+# helper.max()
+pg = st.navigation([ st.Page("pages/chat.py", title="Chat with Max", icon=":material/chat:"), st.Page("pages/experts.py", title="Explore Experts", icon=":material/groups:")])
+pg.run()
 
 st.markdown("""
         <style> 
@@ -151,8 +154,8 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Remove the pages dictionary and radio selection
-# Instead directly call the new max() function
+
+
 
 
 
