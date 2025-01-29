@@ -16,7 +16,7 @@ def handle_save_chat():
     if "messages" in st.session_state and st.session_state.messages:
         messages = st.session_state.messages.copy()
         new_chat = {
-            "title": f"Chat on {messages[0]["content"]if len(messages)%2==0 else messages[1]["content"]}",
+            "title": f"{messages[0]['content']if len(messages)%2==0 else messages[1]['content']}",
             "messages": messages,
         }
         if "saved_chats" not in st.session_state:
@@ -43,31 +43,31 @@ with chat_container:
             unsafe_allow_html=True,
         )
             
-    with header_cols[1]:
-        # Create columns for buttons with equal width
-        button_cols = st.columns(2)
-        with button_cols[0]:
-            st.button(
-                "Save",
-                help="Click to save the chat",
-                type="primary",
-                key="save_button",
-                on_click=handle_save_chat,
-                use_container_width=True,
-            )
-        with button_cols[1]:
-            st.button(
-                            "Clear",
-                            help="Click to reset the app",
-                            type="primary",
-                            key="clear_button",
-                            on_click=lambda: (
-                                st.session_state.update({"messages": []})
-                                if "messages" in st.session_state
-                                else None
-                            ),
-                            use_container_width=True,
-                        )
+    # with header_cols[1]:
+    #     # Create columns for buttons with equal width
+    #     button_cols = st.columns(2)
+    #     with button_cols[0]:
+    #         st.button(
+    #             "Save",
+    #             help="Click to save the chat",
+    #             type="primary",
+    #             key="save_button",
+    #             on_click=handle_save_chat,
+    #             use_container_width=True,
+    #         )
+    #     with button_cols[1]:
+    #         st.button(
+    #                         "Clear",
+    #                         help="Click to reset the app",
+    #                         type="primary",
+    #                         key="clear_button",
+    #                         on_click=lambda: (
+    #                             st.session_state.update({"messages": []})
+    #                             if "messages" in st.session_state
+    #                             else None
+    #                         ),
+    #                         use_container_width=True,
+    #                     )
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -83,6 +83,30 @@ if "recent_chats" not in st.session_state:
     st.session_state.recent_chats = []
 if "disabled" not in st.session_state:
     st.session_state.disabled = False
+
+# Create a fixed container for buttons
+fixed_buttons = st.container()
+
+with fixed_buttons:
+    col0, col1, col2 = st.columns([6, 1, 1])
+    with col1:
+        st.button(
+            "Save",
+            help="Click to save the chat",
+            type="primary",
+            key="save_button",
+            on_click=handle_save_chat,
+            use_container_width=True,
+        )
+    with col2:
+        st.button(
+            "Clear",
+            help="Click to reset the chat",
+            type="primary",
+            key="clear_button",
+            on_click=lambda: st.session_state.update({"messages": []}),
+            use_container_width=True,
+        )
 
 prompt = st.chat_input("Ask Max......", disabled=st.session_state.disabled)
 
@@ -114,7 +138,7 @@ if prompt:
     st.session_state.messages.append({"role": "assistant", "content": response})
     messages = st.session_state.messages.copy()
     new_chat = {
-    "title": f"Chat on {messages[0]["content"]if len(messages)%2==0 else messages[1]["content"]}",
+    "title": f"{messages[0]['content']if len(messages)%2==0 else messages[1]['content']}",
     "messages": messages,
         }
     st.session_state.recent_chats.append(new_chat)
