@@ -51,6 +51,16 @@ def display_content(response, user, streaming=True, chat_container=None):
             .material-icons:hover {
                 background-color: #ffffff !important;
             }
+            .button-container {
+                display: flex;
+                flex-wrap: nowrap; /* Prevents wrapping */
+                gap: 2px; /* Space between buttons */
+                justify-content: left; /* Center align */
+                align-items: center;
+                overflow-x: auto; /* Horizontal scrolling if needed */
+                padding: 0px 0px 10px 0px;
+                max-width: 100%;
+            }
         </style>
     """,
         unsafe_allow_html=True,
@@ -121,15 +131,30 @@ def display_content(response, user, streaming=True, chat_container=None):
                             f"**The information is also available in the 'Sherlock' Dashboard, in the {tab_name}**"
                         )
                         st.link_button(label="Link To Dashboard", url=response["link"])
-
+                    st.markdown(
+                    """
+                    <div class="button-container">
+                        <button class="material-icons" onclick='alert(hello)'>thumb_up</button>
+                        <button class="material-icons">thumb_down</button>
+                        <button class="material-icons">refresh</button>
+                        <button class="material-icons">share</button>
+                        <button class="material-icons">more_vert</button>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                    )
                     # Add interaction buttons in a horizontal layout
-                    button_cols = st.columns([1, 1, 1, 15])  # 4 buttons + spacing
-                    with button_cols[0]:
-                        st.markdown('<button class="material-icons">thumb_up</button>', unsafe_allow_html=True)
-                    with button_cols[1]:
-                        st.markdown('<button class="material-icons">thumb_down</button>', unsafe_allow_html=True)
-                    with button_cols[2]:
-                        st.markdown('<button class="material-icons">share</button>', unsafe_allow_html=True)
+                    # button_cols = st.columns([1, 1, 1, 1, 1, 15])  # 4 buttons + spacing
+                    # with button_cols[0]:
+                    #     st.markdown('<button class="material-icons">thumb_up</button>', unsafe_allow_html=True)
+                    # with button_cols[1]:
+                    #     st.markdown('<button class="material-icons">thumb_down</button>', unsafe_allow_html=True)
+                    # with button_cols[2]:
+                    #     st.markdown('<button class="material-icons">refresh</button>', unsafe_allow_html=True)
+                    # with button_cols[3]:
+                    #     st.markdown('<button class="material-icons">share</button>', unsafe_allow_html=True)
+                    # with button_cols[4]:
+                    #     st.markdown('<button class="material-icons">more_vert</button>', unsafe_allow_html=True)    
                     count += 1
 
             with col2:
@@ -242,7 +267,7 @@ def push_button(label, actual, chat_container):
      # Update recent chats
     if "messages" in st.session_state and st.session_state.messages:
         new_chat = {
-            "title": f"Chat on {messages[0]["content"]if len(messages)%2==0 else messages[1]["content"]}",
+            "title": f"{messages[0]['content']if len(messages)%2==0 else messages[1]['content']}",
             "messages": st.session_state.messages.copy(),
         }
         if "recent_chats" not in st.session_state:

@@ -16,7 +16,7 @@ def handle_save_chat():
     if "messages" in st.session_state and st.session_state.messages:
         messages = st.session_state.messages.copy()
         new_chat = {
-            "title": f"Chat on {messages[0]["content"]if len(messages)%2==0 else messages[1]["content"]}",
+            "title": f"{messages[0]['content']if len(messages)%2==0 else messages[1]['content']}",
             "messages": messages,
         }
         if "saved_chats" not in st.session_state:
@@ -36,38 +36,13 @@ with chat_container:
         st.markdown(
             """
             <div style="text-align: left;">
-                <h1 style="margin: 0; font-size: clamp(20px, 3vw, 32px); padding: 0;">MAX</h1>
-                <p style="margin: 0; font-size: clamp(12px, 1.5vw, 18px);">Modern Analytics Xplorer/Xpert</p>
+                <h1 style="margin: 0; font-size: clamp(25px, 3vw, 32px); padding: 0;">MAX</h1>
+                <p style="margin: 0; font-size: clamp(17px, 1.5vw, 18px);">Modern Analytics Xplorer/Xpert</p>
             </div>
             """,
             unsafe_allow_html=True,
         )
-            
-    with header_cols[1]:
-        # Create columns for buttons with equal width
-        button_cols = st.columns(2)
-        with button_cols[0]:
-            st.button(
-                "Save",
-                help="Click to save the chat",
-                type="primary",
-                key="save_button",
-                on_click=handle_save_chat,
-                use_container_width=True,
-            )
-        with button_cols[1]:
-            st.button(
-                            "Clear",
-                            help="Click to reset the app",
-                            type="primary",
-                            key="clear_button",
-                            on_click=lambda: (
-                                st.session_state.update({"messages": []})
-                                if "messages" in st.session_state
-                                else None
-                            ),
-                            use_container_width=True,
-                        )
+
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -84,8 +59,50 @@ if "recent_chats" not in st.session_state:
 if "disabled" not in st.session_state:
     st.session_state.disabled = False
 
+# Create a fixed container for buttons
+fixed_buttons = st.container(border=None, key='fixed_buttons')
+
+with fixed_buttons:
+    col0, col1 = st.columns([4,4])
+    with col0:
+        st.button(
+            "Clear Conversation",
+            help="Click to reset the chat",
+            type="primary",
+            key="clear_button",
+            on_click=lambda: st.session_state.update({"messages": []}),
+            use_container_width=True,
+        )  
+    # with col1:
+    #     st.button(
+    #         ":material/save:",
+    #         help="Click to save the chat",
+    #         type="primary",
+    #         key="save_button",
+    #         on_click=handle_save_chat,
+    #         use_container_width=True,
+    #     )
+
 prompt = st.chat_input("Ask Max......", disabled=st.session_state.disabled)
 
+st.markdown(
+    """
+    <style>
+        [class*="st-key-fixed_buttons"] {
+            position: fixed;
+            bottom: 117px;
+            align-items: left;
+            padding-left: 10px
+        }
+         [data-test-id="stChatInputSubmitButton"] {
+         visibility:hidden;
+            position: absolute;
+            bottom: -10;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 if prompt:
     # Display chat messages from history on app rerun
     for message in st.session_state.messages:
@@ -114,7 +131,7 @@ if prompt:
     st.session_state.messages.append({"role": "assistant", "content": response})
     messages = st.session_state.messages.copy()
     new_chat = {
-    "title": f"Chat on {messages[0]["content"]if len(messages)%2==0 else messages[1]["content"]}",
+    "title": f"{messages[0]['content']if len(messages)%2==0 else messages[1]['content']}",
     "messages": messages,
         }
     st.session_state.recent_chats.append(new_chat)

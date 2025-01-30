@@ -134,9 +134,11 @@ st.markdown(
     <style>
         button[kind="primary"]{
             background-color: #E31279;
+            max-width: 170px;
         }
         button[kind="primary"] p {
             color:  white;
+            max-width: 170px;
         }
     </style>
     """,
@@ -145,10 +147,43 @@ st.markdown(
 
 st.markdown(
     """
-    <style> 
-    .stChatInput{  
-        border: 2px solid #E31279; !important;
-    }  
+    <style>
+        button[kind="tertiary"]{
+            font-size: 20px !important;
+        }
+        button[kind="tertiary"] hover{
+            background-color: #ffffff !important;
+        }
+        button[kind="tertiary"] p {
+            color:  #555 !important;
+            font-size: 20px !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* Change the chat input container */
+        .stChatInput {  
+            border: 2px solid #E31279; !important;
+        }
+
+        /* Target the chat input send button */
+        button[data-testid="stChatInputSubmitButton"]::before {
+            content: "mic"; /* Change this to any Material Icon name */
+            font-family: "Material Icons";
+            font-size: 20px;
+            color: #33334d; /* Change icon color */
+        }
+
+        /* Hide the default SVG icon */
+        button[data-testid="stChatInputSubmitButton"] svg {
+            display: none;
+        }
     </style>
     """,
     unsafe_allow_html=True,
