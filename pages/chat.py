@@ -85,31 +85,49 @@ if "disabled" not in st.session_state:
     st.session_state.disabled = False
 
 # Create a fixed container for buttons
-fixed_buttons = st.container()
+fixed_buttons = st.container(border=None, key='fixed_buttons')
 
 with fixed_buttons:
-    col0, col1, col2 = st.columns([6, 1, 1])
-    with col1:
+    col0, col1 = st.columns([4,4])
+    with col0:
         st.button(
-            "Save",
-            help="Click to save the chat",
-            type="primary",
-            key="save_button",
-            on_click=handle_save_chat,
-            use_container_width=True,
-        )
-    with col2:
-        st.button(
-            "Clear",
+            "Clear Conversation",
             help="Click to reset the chat",
             type="primary",
             key="clear_button",
             on_click=lambda: st.session_state.update({"messages": []}),
             use_container_width=True,
-        )
+        )  
+    # with col1:
+    #     st.button(
+    #         ":material/save:",
+    #         help="Click to save the chat",
+    #         type="primary",
+    #         key="save_button",
+    #         on_click=handle_save_chat,
+    #         use_container_width=True,
+    #     )
 
 prompt = st.chat_input("Ask Max......", disabled=st.session_state.disabled)
 
+st.markdown(
+    """
+    <style>
+        [class*="st-key-fixed_buttons"] {
+            position: fixed;
+            bottom: 117px;
+            align-items: left;
+            padding-left: 10px
+        }
+         [data-test-id="stChatInputSubmitButton"] {
+         visibility:hidden;
+            position: absolute;
+            bottom: -10;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 if prompt:
     # Display chat messages from history on app rerun
     for message in st.session_state.messages:
