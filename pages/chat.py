@@ -36,38 +36,13 @@ with chat_container:
         st.markdown(
             """
             <div style="text-align: left;">
-                <h1 style="margin: 0; font-size: clamp(20px, 3vw, 32px); padding: 0;">MAX</h1>
-                <p style="margin: 0; font-size: clamp(12px, 1.5vw, 18px);">Modern Analytics Xplorer/Xpert</p>
+                <h1 style="margin: 0; font-size: clamp(25px, 3vw, 32px); padding: 0;">MAX</h1>
+                <p style="margin: 0; font-size: clamp(17px, 1.5vw, 18px);">Modern Analytics Xplorer/Xpert</p>
             </div>
             """,
             unsafe_allow_html=True,
         )
-            
-    # with header_cols[1]:
-    #     # Create columns for buttons with equal width
-    #     button_cols = st.columns(2)
-    #     with button_cols[0]:
-    #         st.button(
-    #             "Save",
-    #             help="Click to save the chat",
-    #             type="primary",
-    #             key="save_button",
-    #             on_click=handle_save_chat,
-    #             use_container_width=True,
-    #         )
-    #     with button_cols[1]:
-    #         st.button(
-    #                         "Clear",
-    #                         help="Click to reset the app",
-    #                         type="primary",
-    #                         key="clear_button",
-    #                         on_click=lambda: (
-    #                             st.session_state.update({"messages": []})
-    #                             if "messages" in st.session_state
-    #                             else None
-    #                         ),
-    #                         use_container_width=True,
-    #                     )
+
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
