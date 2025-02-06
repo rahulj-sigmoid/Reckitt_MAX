@@ -21,7 +21,7 @@ count = 0
 def response_generator(response):
     for word in response.split():
         yield word + " "
-        time.sleep(0.15)
+        time.sleep(0.075)
 
 
 def write_text(text, streaming):
@@ -237,7 +237,7 @@ def display_content_supply(response, user, streaming=True):
             st.markdown(response)
 
 
-def push_button(label, actual, chat_container):
+def push_button(label, actual, chat_container, chat_session_index = 0):
     print("Given Query: ", actual)
     for message in st.session_state.messages:
         display_content(message["content"], message["role"], streaming=False, chat_container=chat_container)
@@ -269,6 +269,7 @@ def push_button(label, actual, chat_container):
         new_chat = {
             "title": f"{messages[0]['content']if len(messages)%2==0 else messages[1]['content']}",
             "messages": st.session_state.messages.copy(),
+            "chat_session_index": chat_session_index,
         }
         if "recent_chats" not in st.session_state:
             st.session_state.recent_chats = []
