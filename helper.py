@@ -263,20 +263,23 @@ def push_button(label, actual, chat_container, chat_session_index = 0):
     # Add response message to chat history
     st.session_state.messages.append({"role": "assistant", "content": response})
     # st.session_state.messages = []
-    messages = st.session_state.messages.copy()
-     # Update recent chats
-    if "messages" in st.session_state and st.session_state.messages:
+    if "recent_chats" not in st.session_state:
+        st.session_state.recent_chats = []
+    
+    is_new_chat = True
+    for chat in st.session_state.recent_chats:
+        print("chat_session_index : " ,chat['chat_session_index'])
+        if chat['chat_session_index'] == st.session_state.chat_session_index:      
+            is_new_chat = False
+
+    if is_new_chat:
+        messages = st.session_state.messages.copy()
         new_chat = {
             "title": f"{messages[0]['content']if len(messages)%2==0 else messages[1]['content']}",
-            "messages": st.session_state.messages.copy(),
-            "chat_session_index": chat_session_index,
+            "messages": messages,
+            "chat_session_index": st.session_state.chat_session_index,
         }
-        if "recent_chats" not in st.session_state:
-            st.session_state.recent_chats = []
         st.session_state.recent_chats.append(new_chat)
-        if len(st.session_state.recent_chats) > 5:
-            st.session_state.recent_chats.pop(0)
-    
     # Force a rerun to update the UI
     # st.rerun()
 
