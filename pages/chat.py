@@ -1,6 +1,7 @@
 import streamlit as st
 from datetime import datetime
 import helper
+import base64
 
 # st.set_page_config(page_title="MAX", layout="wide", initial_sidebar_state='collapsed')
 welcome_response = {
@@ -33,15 +34,57 @@ def handle_save_chat():
 with chat_container:
     header_cols = st.columns([8, 2])   
     with header_cols[0]:
-        st.markdown(
-            """
+        html_code = f"""
+        <style>
+            .container_with_border_5 {{
+                background-color: white;
+                padding: 10px 0; /* Add some padding for spacing */
+                color: #1E3D7D;
+                display: flex;
+                align-items: center;
+                justify-content: space-between; /* Align logo to the left and header to center */
+            }}
+            .header-content {{
+                display: flex;
+                align-items: center;
+                flex-grow: 1;
+                justify-content: center;
+                position: relative;
+            }}
+            .header-content img {{
+                height: 50px; /* Adjust the logo height as needed */
+                margin-bottom: 15px; /* Add some margin to the left if needed */
+            }}
+            #dashboard_heading {{
+                position: relative;
+            }}
+            #dashboard_heading h5 {{
+                font-size: 36px; /* Increase font size */
+                font-weight: 400;
+                font-family: 'Source Serif 4', serif;
+                color: #1A1A1A;
+                margin: 0; /* Remove default margin */
+                padding-bottom: 10px; /* Add some space between text and border */
+            }}
+            .single-line {{
+                width: 100%;
+                height: 2px; /* Height of the bottom border */
+                background: linear-gradient(to right, #e9ebed, #e9ebed); /* Gradient from red to yellow */
+                position: absolute;
+                bottom: 0;
+            }}
+        </style>
+        <div class="container_with_border_5" style="margin-bottom: 15px; margin-top: -50px">
             <div style="text-align: left;">
-                <h1 style="margin: 0; font-size: clamp(25px, 3vw, 32px); padding: 0;">MAX</h1>
-                <p style="margin: 0; font-size: clamp(17px, 1.5vw, 18px);">Modern Analytics Xplorer/Xpert</p>
+                 <img src="data:image/png;base64,{base64.b64encode(open('images/Max_logo.png', 'rb').read()).decode()}" 
+                    style="max-width: 100px; height: auto;"/> 
+                 <p style="margin: 0; font-size: clamp(17px, 1.5vw, 18px);">Modern Analytics Xplorer/Xpert</p>
             </div>
-            """,
-            unsafe_allow_html=True,
-        )
+            
+        </div>
+        <div class="single-line"></div>
+        """
+    st.markdown(html_code, unsafe_allow_html=True)
 
 
 if "messages" not in st.session_state:
@@ -81,7 +124,7 @@ def handle_clear_chat():
 fixed_buttons = st.container(border=None, key='fixed_buttons')
 
 with fixed_buttons:
-    col0, col1 = st.columns([4,4])
+    col0, col1 = st.columns([3,6])
     with col0:
         st.button(
             "Clear Conversation",
